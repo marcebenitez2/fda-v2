@@ -6,7 +6,11 @@
       "Bash(node *)",
       "Read(//c/Users/marce/AppData/Local/Temp/**)",
       "Bash(tar -xf design.tar)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(identify /Users/marce/Desktop/fda-v2/public/logo.png)",
+      "Bash(python3 -c \"from PIL import Image; print\\('PIL ok'\\)\")",
+      "Bash(pip3 install *)",
+      "Bash(python3 *)"
     ]
   }
 }

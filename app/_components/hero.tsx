@@ -1,5 +1,6 @@
-import { Counter } from "./counter";
-import { ParallaxStrip } from "./parallax-strip";
+import Image from 'next/image'
+import { Counter } from './counter'
+import { ParallaxStrip } from './parallax-strip'
 
 export function Hero() {
   return (
@@ -12,18 +13,12 @@ export function Hero() {
 
       <div className="wrap hero-body">
         <div className="hero-grid">
-          <div className="hero-headline">
-            <div
-              className="hero-logo-circle"
-              aria-label="Espacio para el logo del club"
-            />
-          </div>
+          <Image src="/logo.png" alt="Logo del club" width={320} height={320} priority className="hero-logo-circle" />
 
           <div className="hero-side">
             <p className="hero-lede">
-              Somos un club de familia, abierto, con muchas hectáreas de{" "}
-              <em>árboles y deporte</em>. Once disciplinas, pileta, dos quinchos
-              y un salón de eventos — todo a la vuelta de tu casa.
+              Somos un club de familia, abierto, con muchas hectáreas de <em>árboles y deporte</em>. Once disciplinas,
+              pileta, dos quinchos y un salón de eventos — todo a la vuelta de tu casa.
             </p>
             <div className="hero-meta">
               <div className="stat">
@@ -100,5 +95,5 @@ export function Hero() {
         </div>
       </div>
     </section>
-  );
+  )
 }
