@@ -7,10 +7,6 @@ type Discipline = {
   image?: string;
   alt?: string;
   imageClassName?: string;
-  secondaryImage?: string;
-  secondaryAlt?: string;
-  description?: string;
-  featured?: boolean;
   tags: string[];
 };
 
@@ -97,10 +93,6 @@ const disciplines: Discipline[] = [
     image: "/club/hockey-entrenamiento.png",
     alt: "Jugadoras de hockey entrenando de noche en el predio",
     imageClassName: "photo-cover--hockey",
-    secondaryImage: "/club/hockey-equipo.png",
-    secondaryAlt: "Palos, bochas y conos de hockey sobre el césped",
-    description: "Entrenamientos y juego al aire libre, también cuando cae el sol.",
-    featured: true,
     tags: ["Aire libre", "Entrenamiento nocturno"],
   },
 ];
@@ -125,33 +117,21 @@ export function Disciplinas() {
 
         <Reveal className="disc-grid">
           {disciplines.map((d) => (
-            <div key={d.name} className={`disc${d.featured ? " disc--featured" : ""}`}>
+            <div key={d.name} className="disc">
               <div className="disc-photo">
                 {d.image && (
                   <Image
                     src={d.image}
                     alt={d.alt ?? d.name}
                     fill
-                    sizes={d.featured ? "(max-width: 760px) 100vw, 55vw" : "(max-width: 760px) 50vw, 25vw"}
+                    sizes="(max-width: 760px) 50vw, 25vw"
                     className={`photo-cover${d.imageClassName ? ` ${d.imageClassName}` : ""}`}
                   />
-                )}
-                {d.secondaryImage && (
-                  <div className="disc-detail-photo">
-                    <Image
-                      src={d.secondaryImage}
-                      alt={d.secondaryAlt ?? ""}
-                      fill
-                      sizes="(max-width: 760px) 25vw, 12vw"
-                      className="photo-cover"
-                    />
-                  </div>
                 )}
                 {!d.image && <span className="ph">{d.photo}</span>}
               </div>
               <div className="disc-info">
                 <div className="disc-name">{d.name}</div>
-                {d.description && <p className="disc-description">{d.description}</p>}
                 <div className="disc-meta">
                   {d.tags.map((tag) => (
                     <span key={tag}>{tag}</span>
