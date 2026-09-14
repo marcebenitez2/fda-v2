@@ -1,4 +1,5 @@
 import { Hero } from "./_components/hero";
+import { Recorrido } from "./_components/recorrido";
 import { Pulmon } from "./_components/pulmon";
 import { Disciplinas } from "./_components/disciplinas";
 import { Instalaciones } from "./_components/instalaciones";
@@ -10,6 +11,7 @@ export default function Page() {
   return (
     <>
       <Hero />
+      <Recorrido />
       <Pulmon />
       <Disciplinas />
       <Instalaciones />
