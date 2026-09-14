@@ -64,7 +64,6 @@ export function ParallaxStrip() {
           sizes="(max-width: 760px) 65vw, 50vw"
           className="photo-cover photo-cover--entrance"
         />
-        <span className="tag">Nuestro club</span>
       </div>
       <div className="img-slot has-photo" data-parallax="0.10">
         <Image
@@ -74,7 +73,6 @@ export function ParallaxStrip() {
           sizes="(max-width: 760px) 35vw, 25vw"
           className="photo-cover photo-cover--pool"
         />
-        <span className="tag">Verano en la pileta</span>
       </div>
       <div className="img-slot has-photo" data-parallax="0.14">
         <Image
@@ -84,7 +82,6 @@ export function ParallaxStrip() {
           sizes="25vw"
           className="photo-cover"
         />
-        <span className="tag">Un club de familia</span>
       </div>
     </div>
   );

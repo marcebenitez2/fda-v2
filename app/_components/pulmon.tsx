@@ -28,10 +28,6 @@ export function Pulmon() {
               sizes="(max-width: 980px) 100vw, 45vw"
               className="photo-cover"
             />
-            <span className="corner-badge">Pulmón de Zona Sur</span>
-            <div className="img-tag">
-              <span>Arboleda del club</span>
-            </div>
           </Reveal>
         </div>
       </div>

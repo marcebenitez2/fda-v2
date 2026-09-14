@@ -518,23 +518,6 @@ section {
 .photo-cover--wing-chun { object-position: center 35%; }
 .photo-cover--skating { object-position: center 42%; }
 .photo-cover--hockey { object-position: center 48%; }
-.img-slot .tag {
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  background: rgba(15, 42, 31, 0.85);
-  color: var(--cream);
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 10px;
-  z-index: 1;
-}
-.img-slot .center-label {
-  background: rgba(251, 248, 239, 0.92);
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 1px dashed rgba(20, 53, 39, 0.4);
-}
 
 /* Marquee */
 .marquee {
@@ -708,37 +691,6 @@ section {
   overflow: hidden;
   background:
     repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.04) 0 14px, rgba(255, 255, 255, 0.08) 14px 28px), #1d4530;
-}
-.pulmon-img .img-tag {
-  position: absolute;
-  inset: auto 18px 18px 18px;
-  color: var(--cream);
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  z-index: 1;
-  background: rgba(15, 42, 31, 0.8);
-  padding: 8px 12px;
-  border-radius: 999px;
-}
-.pulmon-img .corner-badge {
-  position: absolute;
-  top: 22px;
-  right: 22px;
-  background: var(--yellow);
-  color: var(--green-deep);
-  padding: 10px 14px;
-  border-radius: 999px;
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 500;
-  z-index: 1;
 }
 .leaf {
   position: absolute;
@@ -978,19 +930,6 @@ section {
   color: var(--green-deep);
   text-align: center;
 }
-.card-photo .photo-tag {
-  position: absolute;
-  bottom: 14px;
-  left: 14px;
-  background: rgba(15, 42, 31, 0.85);
-  color: var(--cream);
-  padding: 5px 10px;
-  border-radius: 999px;
-  font-family: var(--f-mono);
-  font-size: 9px;
-  letter-spacing: 0.16em;
-  z-index: 1;
-}
 .card-body {
   padding: 22px 24px 24px;
   display: flex;
@@ -1171,21 +1110,6 @@ section {
   right: 0;
   background:
     repeating-linear-gradient(-45deg, rgba(20, 53, 39, 0.05) 0 12px, rgba(20, 53, 39, 0.09) 12px 24px), var(--cream-2);
-}
-.comu-img-stack .badge {
-  position: absolute;
-  bottom: 18%;
-  left: 38%;
-  background: var(--green-deep);
-  color: var(--cream);
-  padding: 14px 18px;
-  border-radius: 999px;
-  font-family: var(--f-mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  box-shadow: 0 20px 50px rgba(20, 53, 39, 0.18);
-  z-index: 2;
 }
 .comu-list {
   margin-top: 36px;

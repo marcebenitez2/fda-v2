@@ -28,7 +28,6 @@ export function Instalaciones() {
                 sizes="(max-width: 760px) 100vw, 55vw"
                 className="photo-cover photo-cover--pool"
               />
-              <span className="photo-tag">Pileta del club</span>
             </div>
             <div className="card-body">
               <div className="num">01 · Pileta</div>
@@ -44,7 +43,6 @@ export function Instalaciones() {
           <Reveal className="card salon" delay=".1s">
             <div className="card-photo">
               <span className="ph">Foto · Salón de eventos</span>
-              <span className="photo-tag">1200×800</span>
             </div>
             <div className="card-body">
               <div className="num">02 · Salón de eventos</div>
@@ -60,7 +58,6 @@ export function Instalaciones() {
           <Reveal className="card quincho" delay=".15s">
             <div className="card-photo">
               <span className="ph">Foto · Quinchos</span>
-              <span className="photo-tag">1200×800</span>
             </div>
             <div className="card-body">
               <div className="num">03 · Dos quinchos</div>
@@ -76,7 +73,6 @@ export function Instalaciones() {
           <Reveal className="card parking" delay=".2s">
             <div className="card-photo">
               <span className="ph">Foto · Estacionamiento</span>
-              <span className="photo-tag">1000×700</span>
             </div>
             <div className="card-body">
               <div className="num">04 · Estacionamiento</div>
@@ -96,7 +92,6 @@ export function Instalaciones() {
                 sizes="(max-width: 760px) 100vw, 30vw"
                 className="photo-cover"
               />
-              <span className="photo-tag">Mesas al aire libre</span>
             </div>
             <div className="card-body">
               <div className="num">05 · Mesas y rincones</div>

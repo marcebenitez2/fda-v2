@@ -15,7 +15,6 @@ export function Comunidad() {
                 sizes="(max-width: 980px) 60vw, 35vw"
                 className="photo-cover"
               />
-              <span className="tag">Compartir en familia</span>
             </div>
             <div className="img-slot has-photo b">
               <Image
@@ -25,9 +24,7 @@ export function Comunidad() {
                 sizes="(max-width: 980px) 50vw, 27vw"
                 className="photo-cover"
               />
-              <span className="tag">Jugar al aire libre</span>
             </div>
-            <div className="badge">Un club hecho entre todos</div>
           </Reveal>
 
           <Reveal delay=".15s">
