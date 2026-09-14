@@ -29,6 +29,9 @@ const disciplines: Discipline[] = [
     num: "02",
     name: "Entrenamiento funcional",
     photo: "Foto · Funcional",
+    image: "/club/entrenamiento-funcional.png",
+    alt: "Elementos de entrenamiento funcional en el salón del club",
+    imageClassName: "photo-cover--functional",
     tags: ["Indoor / Outdoor", "Adultos"],
   },
   {
@@ -41,6 +44,9 @@ const disciplines: Discipline[] = [
     num: "04",
     name: "Wing Chun",
     photo: "Foto · Wing Chun",
+    image: "/club/wing-chun-recortado.png",
+    alt: "Practicante de Wing Chun en postura de defensa",
+    imageClassName: "photo-cover--wing-chun",
     tags: ["Indoor", "Adultos"],
   },
   {

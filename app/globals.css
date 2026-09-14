@@ -514,6 +514,8 @@ section {
 .photo-cover--entrance { object-position: center 45%; }
 .photo-cover--pool { object-position: 62% center; }
 .photo-cover--archery { object-position: center 42%; }
+.photo-cover--functional { object-position: center 60%; }
+.photo-cover--wing-chun { object-position: center 35%; }
 .photo-cover--skating { object-position: center 42%; }
 .photo-cover--hockey { object-position: center 48%; }
 .img-slot .tag {
