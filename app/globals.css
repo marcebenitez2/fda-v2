@@ -513,6 +513,9 @@ section {
 .photo-cover { object-fit: cover; }
 .photo-cover--entrance { object-position: center 45%; }
 .photo-cover--pool { object-position: 62% center; }
+.photo-cover--archery { object-position: center 42%; }
+.photo-cover--skating { object-position: center 42%; }
+.photo-cover--hockey { object-position: center 48%; }
 .img-slot .tag {
   position: absolute;
   bottom: 14px;
@@ -827,6 +830,55 @@ section {
   border-radius: 999px;
   background: var(--ink-soft);
   opacity: 0.6;
+}
+.disc--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  background: var(--green-deep);
+}
+.disc--featured .disc-photo {
+  aspect-ratio: auto;
+  min-height: 400px;
+}
+.disc--featured .disc-info {
+  justify-content: center;
+  gap: 20px;
+  padding: clamp(28px, 5vw, 72px);
+}
+.disc--featured .disc-name {
+  color: var(--cream);
+  font-size: clamp(44px, 5vw, 72px);
+}
+.disc--featured .disc-meta { color: var(--cream); }
+.disc--featured .disc-meta span + span::before { background: var(--cream); }
+.disc-description {
+  color: rgba(246, 241, 228, 0.8);
+  font-size: 18px;
+  line-height: 1.55;
+  max-width: 34ch;
+}
+.disc-detail-photo {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  width: min(27%, 165px);
+  aspect-ratio: 1;
+  border: 3px solid var(--cream);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+.disc-detail-photo .photo-cover { object-position: center 75%; }
+@media (max-width: 760px) {
+  .disc--featured { grid-template-columns: 1fr; }
+  .disc--featured .disc-photo {
+    aspect-ratio: 4 / 5;
+    min-height: 0;
+  }
+  .disc--featured .disc-info { padding: 26px; }
+  .disc--featured .disc-name { font-size: 42px; }
 }
 
 /* ───────── INSTALACIONES ───────── */

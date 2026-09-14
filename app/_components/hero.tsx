@@ -18,12 +18,12 @@ export function Hero() {
           <div className="hero-side">
             <h1 className="hero-title">Club Domingo <span>Matheu</span></h1>
             <p className="hero-lede">
-              Somos un club de familia, abierto, con muchas hectáreas de <em>árboles y deporte</em>. Once disciplinas,
+              Somos un club de familia, abierto, con muchas hectáreas de <em>árboles y deporte</em>. Doce disciplinas,
               pileta, dos quinchos y un salón de eventos — todo a la vuelta de tu casa.
             </p>
             <div className="hero-meta">
               <div className="stat">
-                <Counter target={11} />
+                <Counter target={12} />
                 <div className="l">Disciplinas</div>
               </div>
               <div className="stat">
@@ -67,6 +67,8 @@ export function Hero() {
           <span className="dot" />
           <span>Ultimate Frisbee</span>
           <span className="dot" />
+          <span>Hockey</span>
+          <span className="dot" />
           <span>Grupo Scout</span>
           <span className="dot" />
           <span>Arquería</span>
@@ -90,6 +92,8 @@ export function Hero() {
           <span>Sóftbol</span>
           <span className="dot" />
           <span>Ultimate Frisbee</span>
+          <span className="dot" />
+          <span>Hockey</span>
           <span className="dot" />
           <span>Grupo Scout</span>
           <span className="dot" />

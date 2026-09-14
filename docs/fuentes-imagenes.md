@@ -1,6 +1,6 @@
 # Fotografías del club
 
-Las fotografías incorporadas en `public/club` provienen de publicaciones sobre el Club Social y Deportivo Fábrica de Armas Domingo Matheu y de actividades realizadas en su predio. Se conservaron los archivos descargados, sin reescalado artificial.
+Las primeras fotografías incorporadas en `public/club` provienen de publicaciones sobre el Club Social y Deportivo Fábrica de Armas Domingo Matheu y de actividades realizadas en su predio.
 
 | Archivo | Origen | Uso en la página |
 | --- | --- | --- |
@@ -14,3 +14,16 @@ Las fotografías incorporadas en `public/club` provienen de publicaciones sobre 
 | `scouts-juego.webp` | [Grupo Scout Domingo Matheu](https://gruposcoutdomingomatheu.com.ar/) | Comunidad |
 
 Las fotos de actividades y del festejo muestran momentos concretos, y la foto de la pileta y la entrada corresponde a una publicación de 2017. No deben usarse para afirmar el estado actual de una instalación.
+
+## Fotos aportadas por el usuario
+
+| Archivo | Contenido y uso |
+| --- | --- |
+| `arqueria.jpg` | Práctica de arquería; tarjeta Arquería |
+| `ultimate.png` | Partido de ultimate; tarjeta Ultimate Frisbee |
+| `taekwondo-recortado.png` | Combate de taekwondo; tarjeta Taekwondo. Se recortó la franja inferior con marca de agua y crédito. |
+| `patin-recortado.png` | Presentación de patín; tarjeta Patín artístico. Se recortó la franja inferior con texto y marca de agua. |
+| `hockey-entrenamiento.png` | Entrenamiento nocturno; tarjeta destacada de Hockey |
+| `hockey-equipo.png` | Palos, bochas y conos; detalle de la tarjeta de Hockey |
+
+Las imágenes de taekwondo y patín muestran competiciones; sus textos alternativos no las describen como escenas del predio.
