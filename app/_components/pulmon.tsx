@@ -22,8 +22,8 @@ export function Pulmon() {
 
           <Reveal className="pulmon-img" delay=".2s">
             <Image
-              src="/club/parque-arbolado.jpg"
-              alt="Arboleda y sector de juegos del predio del club"
+              src="/club/plaza-juegos.jpg"
+              alt="Plaza con juegos infantiles y bancos bajo la arboleda del predio"
               fill
               sizes="(max-width: 980px) 100vw, 45vw"
               className="photo-cover"
