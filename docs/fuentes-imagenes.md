@@ -33,4 +33,4 @@ Las imágenes de taekwondo y patín muestran competiciones; sus textos alternati
 
 ## Video aportado por el usuario
 
-`public/video1.mp4` conserva el original de 33,6 segundos. `public/club/recorrido-club.mp4` es la versión para la página, convertida a H.264 en 540 × 960 px (aprox. 3,35 MB). Se reproduce completa en la sección «El club en movimiento», con controles y sin carga previa. `public/club/video-poster.jpg` es el fotograma de cierre aportado junto al video y se muestra antes de reproducirlo.
+`public/video1.mp4` conserva el original de 33,6 segundos. `public/club/recorrido-club.mp4` es la versión para la página, convertida a H.264 en 720 × 1280 px (aprox. 7,45 MB), un formato compatible con navegadores móviles y preparado para comenzar a reproducir mientras descarga. Se reproduce completa en la sección «El club en movimiento», con controles y sin carga previa. `public/club/video-poster.jpg` es el fotograma de cierre aportado junto al video y se muestra antes de reproducirlo.
