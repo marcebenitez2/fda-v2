@@ -7,7 +7,6 @@ type Discipline = {
   image?: string;
   alt?: string;
   imageClassName?: string;
-  tags: string[];
 };
 
 const disciplines: Discipline[] = [
@@ -17,7 +16,6 @@ const disciplines: Discipline[] = [
     image: "/club/arqueria.jpg",
     alt: "Mujer practicando arquería al aire libre",
     imageClassName: "photo-cover--archery",
-    tags: ["Aire libre", "Todas las edades"],
   },
   {
     name: "Entrenamiento funcional",
@@ -25,7 +23,6 @@ const disciplines: Discipline[] = [
     image: "/club/entrenamiento-funcional.png",
     alt: "Elementos de entrenamiento funcional en el salón del club",
     imageClassName: "photo-cover--functional",
-    tags: ["Indoor / Outdoor", "Adultos"],
   },
   {
     name: "Wing Chun",
@@ -33,12 +30,10 @@ const disciplines: Discipline[] = [
     image: "/club/wing-chun-recortado.png",
     alt: "Practicante de Wing Chun en postura de defensa",
     imageClassName: "photo-cover--wing-chun",
-    tags: ["Indoor", "Adultos"],
   },
   {
     name: "Pádel",
     photo: "Foto · Pádel",
-    tags: ["Canchas propias", "Todos los niveles"],
   },
   {
     name: "Patín artístico",
@@ -46,7 +41,6 @@ const disciplines: Discipline[] = [
     image: "/club/patin-artistico.jpg",
     alt: "Patines artísticos dispuestos en círculo",
     imageClassName: "photo-cover--skating",
-    tags: ["Pista propia", "Desde 4 años"],
   },
   {
     name: "Patín competitivo",
@@ -54,38 +48,34 @@ const disciplines: Discipline[] = [
     image: "/club/patin-competitivo.jpg",
     alt: "Patinadora de patín competitivo durante una presentación",
     imageClassName: "photo-cover--skating",
-    tags: ["Pista propia", "Federado"],
   },
   {
     name: "Pelota paleta",
     photo: "Foto · Pelota paleta",
-    tags: ["Cancha propia", "Adultos"],
   },
   {
     name: "Taekwondo",
     photo: "Foto · Taekwondo",
     image: "/club/taekwondo-recortado.png",
     alt: "Dos competidores de taekwondo durante un combate",
-    tags: ["Dojo", "Desde 5 años"],
   },
   {
     name: "Sóftbol",
     photo: "Foto · Sóftbol",
-    tags: ["Diamante propio", "Todas las edades"],
+    image: "/club/softbol.png",
+    alt: "Bateador de sóftbol conectando un lanzamiento durante un entrenamiento",
   },
   {
     name: "Ultimate Frisbee",
     photo: "Foto · Ultimate",
     image: "/club/ultimate.png",
     alt: "Jugadores de ultimate disputando el disco en una cancha de césped",
-    tags: ["Aire libre", "Adultos jóvenes"],
   },
   {
     name: "Grupo Scout",
     photo: "Foto · Grupo Scout",
     image: "/club/scouts-ronda.webp",
     alt: "Grupo Scout Domingo Matheu reunido en ronda en el predio",
-    tags: ["Aire libre", "Familias"],
   },
   {
     name: "Hockey",
@@ -93,7 +83,6 @@ const disciplines: Discipline[] = [
     image: "/club/hockey-entrenamiento.png",
     alt: "Jugadoras de hockey entrenando de noche en el predio",
     imageClassName: "photo-cover--hockey",
-    tags: ["Aire libre", "Entrenamiento nocturno"],
   },
 ];
 
@@ -132,11 +121,6 @@ export function Disciplinas() {
               </div>
               <div className="disc-info">
                 <div className="disc-name">{d.name}</div>
-                <div className="disc-meta">
-                  {d.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
-                </div>
               </div>
             </div>
           ))}
