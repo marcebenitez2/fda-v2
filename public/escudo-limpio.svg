@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1040" viewBox="0 0 240 260" fill="none">
+  <title>Escudo del club</title>
+  <defs>
+    <clipPath id="interior">
+      <path d="M120 24 213 53c3 38 0 76-15 108-16 33-43 57-78 75-35-18-62-42-78-75C27 129 24 91 27 53l93-29Z"/>
+    </clipPath>
+  </defs>
+  <path d="M120 9 227 42c4 51-1 93-20 132-19 37-49 62-87 77-38-15-68-40-87-77C14 135 9 93 13 42L120 9Z" fill="#004B2C" stroke="#E3AC35" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M76 0h23v86h114v22H99v115H76V108H27V86h49V0Z" fill="#E3AC35" clip-path="url(#interior)"/>
+  <path d="M120 24 213 53c3 38 0 76-15 108-16 33-43 57-78 75-35-18-62-42-78-75C27 129 24 91 27 53l93-29Z" stroke="#E3AC35" stroke-width="6" stroke-linejoin="round"/>
+</svg>

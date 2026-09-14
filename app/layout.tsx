@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Club Fábrica de Armas · +80 años",
+  title: "Club Domingo Matheu · +80 años",
   description:
     "Club familiar en Zona Sur. +80 años de historia, 11 disciplinas, pileta, quinchos y salón de eventos.",
 };

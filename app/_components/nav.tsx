@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export function Nav() {
@@ -14,9 +15,7 @@ export function Nav() {
   return (
     <nav className={`nav${scrolled ? " is-scrolled" : ""}`}>
       <a href="#top" className="logo">
-        <span className="logo-mark" aria-label="Espacio reservado para logo">
-          LOGO
-        </span>
+        <Image src="/escudo-limpio.svg" alt="Escudo del club" width={40} height={44} unoptimized className="logo-mark" />
       </a>
       <div className="nav-links">
         <a href="#pulmon">El club</a>

@@ -13,9 +13,10 @@ export function Hero() {
 
       <div className="wrap hero-body">
         <div className="hero-grid">
-          <Image src="/logo.png" alt="Logo del club" width={320} height={320} priority className="hero-logo-circle" />
+          <Image src="/escudo-limpio.svg" alt="Escudo del club" width={320} height={347} priority unoptimized className="hero-logo" />
 
           <div className="hero-side">
+            <h1 className="hero-title">Club Domingo <span>Matheu</span></h1>
             <p className="hero-lede">
               Somos un club de familia, abierto, con muchas hectáreas de <em>árboles y deporte</em>. Once disciplinas,
               pileta, dos quinchos y un salón de eventos — todo a la vuelta de tu casa.
