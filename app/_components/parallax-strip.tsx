@@ -59,7 +59,7 @@ export function ParallaxStrip() {
       <div className="img-slot has-photo" data-parallax="0.06">
         <Image
           src="/club/entrada.jpg"
-          alt="Entrada arbolada del Club Social y Deportivo Fábrica de Armas Domingo Matheu"
+          alt="Entrada arbolada del CLUB S&D F.A. DOMINGO MATHEU"
           fill
           sizes="(max-width: 760px) 65vw, 50vw"
           className="photo-cover photo-cover--entrance"

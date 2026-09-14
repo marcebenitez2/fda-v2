@@ -5,9 +5,9 @@ export function Footer() {
         <div className="foot-top">
           <div>
             <h3 className="foot-big">
-              Fábrica de Armas.
+              CLUB S&amp;D F.A.
               <br />
-              <em>+80 años de barrio.</em>
+              <em>DOMINGO MATHEU.</em>
             </h3>
           </div>
           <div className="foot-col">
@@ -34,7 +34,7 @@ export function Footer() {
           </div>
         </div>
         <div className="foot-bottom">
-          <div>© Club Fábrica de Armas</div>
+          <div>© CLUB S&amp;D F.A. DOMINGO MATHEU</div>
           <div>+80 años · Hecho con orgullo en Zona Sur</div>
         </div>
       </div>

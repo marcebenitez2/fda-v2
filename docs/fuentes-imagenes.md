@@ -1,6 +1,6 @@
 # Fotografías del club
 
-Las primeras fotografías incorporadas en `public/club` provienen de publicaciones sobre el Club Social y Deportivo Fábrica de Armas Domingo Matheu y de actividades realizadas en su predio.
+Las primeras fotografías incorporadas en `public/club` provienen de publicaciones sobre el CLUB S&D F.A. DOMINGO MATHEU y de actividades realizadas en su predio.
 
 | Archivo | Origen | Uso en la página |
 | --- | --- | --- |

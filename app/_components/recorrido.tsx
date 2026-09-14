@@ -17,7 +17,7 @@ export function Recorrido() {
         <div className="recorrido-media">
           <div className="recorrido-frame">
             <video
-              aria-label="Video de presentación del Club Domingo Matheu"
+              aria-label="Video de presentación del CLUB S&D F.A. DOMINGO MATHEU"
               controls
               playsInline
               preload="none"
@@ -30,7 +30,7 @@ export function Recorrido() {
             </video>
           </div>
           <div className="recorrido-caption">
-            <span>Club Domingo Matheu</span>
+            <span>CLUB S&amp;D F.A. DOMINGO MATHEU</span>
             <span>Rosario · Zona Sur</span>
           </div>
         </div>

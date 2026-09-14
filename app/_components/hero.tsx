@@ -16,7 +16,7 @@ export function Hero() {
           <Image src="/escudo-limpio.svg" alt="Escudo del club" width={320} height={347} priority unoptimized className="hero-logo" />
 
           <div className="hero-side">
-            <h1 className="hero-title">Club Domingo <span>Matheu</span></h1>
+            <h1 className="hero-title">CLUB S&amp;D F.A. <span>DOMINGO MATHEU</span></h1>
             <p className="hero-lede">
               Somos un club de familia, abierto, con muchas hectáreas de <em>árboles y deporte</em>. Doce disciplinas,
               pileta, dos quinchos y un salón de eventos — todo a la vuelta de tu casa.
