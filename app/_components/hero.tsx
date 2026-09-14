@@ -27,7 +27,7 @@ export function Hero() {
                 <div className="l">Disciplinas</div>
               </div>
               <div className="stat">
-                <Counter target={14} />
+                <Counter target={9.5} decimals={1} />
                 <div className="l">Hectáreas verdes</div>
               </div>
               <div className="stat">

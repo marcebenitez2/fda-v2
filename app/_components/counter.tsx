@@ -5,9 +5,10 @@ import { useEffect, useRef } from "react";
 interface CounterProps {
   target: number;
   suffix?: string;
+  decimals?: number;
 }
 
-export function Counter({ target, suffix = "" }: CounterProps) {
+export function Counter({ target, suffix = "", decimals = 0 }: CounterProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -17,7 +18,7 @@ export function Counter({ target, suffix = "" }: CounterProps) {
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          animate(el, target, suffix);
+          animate(el, target, suffix, decimals);
           io.unobserve(el);
         }
       },
@@ -26,19 +27,23 @@ export function Counter({ target, suffix = "" }: CounterProps) {
 
     io.observe(el);
     return () => io.disconnect();
-  }, [target, suffix]);
+  }, [target, suffix, decimals]);
 
   return <div ref={ref} className="n">0</div>;
 }
 
-function animate(el: HTMLElement, target: number, suffix: string): void {
+function animate(el: HTMLElement, target: number, suffix: string, decimals: number): void {
   const dur = 1400;
   const start = performance.now();
 
   function tick(now: number): void {
     const p = Math.min(1, (now - start) / dur);
     const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.round(target * eased) + suffix;
+    const value = target * eased;
+    const displayValue = decimals > 0
+      ? value.toFixed(decimals).replace(".", ",")
+      : Math.round(value).toString();
+    el.textContent = displayValue + suffix;
     if (p < 1) requestAnimationFrame(tick);
   }
 
