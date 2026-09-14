@@ -660,15 +660,8 @@ section {
 }
 .pulmon-grid {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 80px;
-  align-items: center;
-}
-@media (max-width: 980px) {
-  .pulmon-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
+  grid-template-columns: 1fr;
+  gap: 48px;
 }
 .pulmon h2 {
   color: var(--cream);
@@ -686,7 +679,7 @@ section {
 }
 .pulmon-img {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 16 / 9;
   border-radius: 22px;
   overflow: hidden;
   background:
