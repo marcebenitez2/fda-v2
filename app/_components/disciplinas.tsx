@@ -60,6 +60,9 @@ const disciplines: Discipline[] = [
   {
     name: "Patín competitivo",
     photo: "Foto · Patín competitivo",
+    image: "/club/patin-competitivo.jpg",
+    alt: "Patinadora de patín competitivo durante una presentación",
+    imageClassName: "photo-cover--skating",
     tags: ["Pista propia", "Federado"],
   },
   {

@@ -25,7 +25,8 @@ Las fotos de actividades y del festejo muestran momentos concretos, y la foto de
 | `ultimate.png` | Partido de ultimate; tarjeta Ultimate Frisbee |
 | `taekwondo-recortado.png` | Combate de taekwondo; tarjeta Taekwondo. Se recortó la franja inferior con marca de agua y crédito. |
 | `patin-artistico.jpg` | Foto de patines artísticos aportada por el usuario; tarjeta Patín artístico. |
-| `patin-recortado.png` | Imagen anterior de presentación de patín, conservada como archivo histórico. Se recortó la franja inferior con texto y marca de agua. |
+| `patin-competitivo.jpg` | Foto aportada por el usuario para Patín competitivo; se recortó la franja inferior con texto y marca de agua y se optimizó para la web. |
+| `patin-recortado.png` | Recorte anterior de la misma presentación, conservado como archivo histórico. |
 | `hockey-entrenamiento.png` | Entrenamiento nocturno; tarjeta destacada de Hockey |
 | `hockey-equipo.png` | Palos, bochas y conos; detalle de la tarjeta de Hockey |
 
