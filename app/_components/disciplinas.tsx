@@ -32,11 +32,6 @@ const disciplines: Discipline[] = [
     tags: ["Indoor / Outdoor", "Adultos"],
   },
   {
-    name: "Handball",
-    photo: "Foto · Handball",
-    tags: ["Cancha propia", "Infantil → adultos"],
-  },
-  {
     name: "Wing Chun",
     photo: "Foto · Wing Chun",
     image: "/club/wing-chun-recortado.png",

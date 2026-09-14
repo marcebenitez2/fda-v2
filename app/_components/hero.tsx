@@ -49,8 +49,6 @@ export function Hero() {
           <span className="dot" />
           <span>Entrenamiento funcional</span>
           <span className="dot" />
-          <span>Handball</span>
-          <span className="dot" />
           <span>Wing Chun</span>
           <span className="dot" />
           <span>Pádel</span>
@@ -74,8 +72,6 @@ export function Hero() {
           <span>Arquería</span>
           <span className="dot" />
           <span>Entrenamiento funcional</span>
-          <span className="dot" />
-          <span>Handball</span>
           <span className="dot" />
           <span>Wing Chun</span>
           <span className="dot" />
