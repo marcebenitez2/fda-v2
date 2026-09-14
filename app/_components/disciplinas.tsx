@@ -52,8 +52,8 @@ const disciplines: Discipline[] = [
   {
     name: "Patín artístico",
     photo: "Foto · Patín artístico",
-    image: "/club/patin-recortado.png",
-    alt: "Patinadora artística durante una presentación",
+    image: "/club/patin-artistico.jpg",
+    alt: "Patines artísticos dispuestos en círculo",
     imageClassName: "photo-cover--skating",
     tags: ["Pista propia", "Desde 4 años"],
   },

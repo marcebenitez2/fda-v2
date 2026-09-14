@@ -24,7 +24,8 @@ Las fotos de actividades y del festejo muestran momentos concretos, y la foto de
 | `wing-chun-recortado.png` | Practicante de Wing Chun; tarjeta Wing Chun. Se recortó una de las dos figuras repetidas de la imagen original. |
 | `ultimate.png` | Partido de ultimate; tarjeta Ultimate Frisbee |
 | `taekwondo-recortado.png` | Combate de taekwondo; tarjeta Taekwondo. Se recortó la franja inferior con marca de agua y crédito. |
-| `patin-recortado.png` | Presentación de patín; tarjeta Patín artístico. Se recortó la franja inferior con texto y marca de agua. |
+| `patin-artistico.jpg` | Foto de patines artísticos aportada por el usuario; tarjeta Patín artístico. |
+| `patin-recortado.png` | Imagen anterior de presentación de patín, conservada como archivo histórico. Se recortó la franja inferior con texto y marca de agua. |
 | `hockey-entrenamiento.png` | Entrenamiento nocturno; tarjeta destacada de Hockey |
 | `hockey-equipo.png` | Palos, bochas y conos; detalle de la tarjeta de Hockey |
 
