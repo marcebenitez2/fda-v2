@@ -835,42 +835,6 @@ section {
   text-transform: uppercase;
   text-align: center;
 }
-.disc-num-tag {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: var(--cream);
-  color: var(--green-deep);
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  font-weight: 500;
-  z-index: 2;
-}
-.disc-arrow {
-  position: absolute;
-  bottom: 14px;
-  right: 14px;
-  width: 38px;
-  height: 38px;
-  border-radius: 999px;
-  background: var(--cream);
-  color: var(--green-deep);
-  display: grid;
-  place-items: center;
-  transition:
-    transform 0.4s ease,
-    background 0.4s ease,
-    color 0.4s ease;
-  font-size: 15px;
-  z-index: 2;
-}
-.disc:hover .disc-arrow {
-  background: var(--yellow);
-  transform: rotate(-45deg);
-}
 .disc-info {
   padding: 18px 4px 0;
   display: flex;

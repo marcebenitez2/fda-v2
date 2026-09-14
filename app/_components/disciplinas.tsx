@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Reveal } from "./reveal";
 
 type Discipline = {
-  num: string;
   name: string;
   photo: string;
   image?: string;
@@ -17,7 +16,6 @@ type Discipline = {
 
 const disciplines: Discipline[] = [
   {
-    num: "01",
     name: "Arquería",
     photo: "Foto · Arquería",
     image: "/club/arqueria.jpg",
@@ -26,7 +24,6 @@ const disciplines: Discipline[] = [
     tags: ["Aire libre", "Todas las edades"],
   },
   {
-    num: "02",
     name: "Entrenamiento funcional",
     photo: "Foto · Funcional",
     image: "/club/entrenamiento-funcional.png",
@@ -35,13 +32,11 @@ const disciplines: Discipline[] = [
     tags: ["Indoor / Outdoor", "Adultos"],
   },
   {
-    num: "03",
     name: "Handball",
     photo: "Foto · Handball",
     tags: ["Cancha propia", "Infantil → adultos"],
   },
   {
-    num: "04",
     name: "Wing Chun",
     photo: "Foto · Wing Chun",
     image: "/club/wing-chun-recortado.png",
@@ -50,13 +45,11 @@ const disciplines: Discipline[] = [
     tags: ["Indoor", "Adultos"],
   },
   {
-    num: "05",
     name: "Pádel",
     photo: "Foto · Pádel",
     tags: ["Canchas propias", "Todos los niveles"],
   },
   {
-    num: "06",
     name: "Patín artístico",
     photo: "Foto · Patín artístico",
     image: "/club/patin-recortado.png",
@@ -65,19 +58,16 @@ const disciplines: Discipline[] = [
     tags: ["Pista propia", "Desde 4 años"],
   },
   {
-    num: "07",
     name: "Patín competitivo",
     photo: "Foto · Patín competitivo",
     tags: ["Pista propia", "Federado"],
   },
   {
-    num: "08",
     name: "Pelota paleta",
     photo: "Foto · Pelota paleta",
     tags: ["Cancha propia", "Adultos"],
   },
   {
-    num: "09",
     name: "Taekwondo",
     photo: "Foto · Taekwondo",
     image: "/club/taekwondo-recortado.png",
@@ -85,13 +75,11 @@ const disciplines: Discipline[] = [
     tags: ["Dojo", "Desde 5 años"],
   },
   {
-    num: "10",
     name: "Sóftbol",
     photo: "Foto · Sóftbol",
     tags: ["Diamante propio", "Todas las edades"],
   },
   {
-    num: "11",
     name: "Ultimate Frisbee",
     photo: "Foto · Ultimate",
     image: "/club/ultimate.png",
@@ -99,7 +87,6 @@ const disciplines: Discipline[] = [
     tags: ["Aire libre", "Adultos jóvenes"],
   },
   {
-    num: "12",
     name: "Grupo Scout",
     photo: "Foto · Grupo Scout",
     image: "/club/scouts-ronda.webp",
@@ -107,7 +94,6 @@ const disciplines: Discipline[] = [
     tags: ["Aire libre", "Familias"],
   },
   {
-    num: "13",
     name: "Hockey",
     photo: "Foto · Hockey",
     image: "/club/hockey-entrenamiento.png",
@@ -141,7 +127,7 @@ export function Disciplinas() {
 
         <Reveal className="disc-grid">
           {disciplines.map((d) => (
-            <div key={d.num} className={`disc${d.featured ? " disc--featured" : ""}`}>
+            <div key={d.name} className={`disc${d.featured ? " disc--featured" : ""}`}>
               <div className="disc-photo">
                 {d.image && (
                   <Image
@@ -163,9 +149,7 @@ export function Disciplinas() {
                     />
                   </div>
                 )}
-                <span className="disc-num-tag">{d.num}</span>
                 {!d.image && <span className="ph">{d.photo}</span>}
-                <span className="disc-arrow">↗</span>
               </div>
               <div className="disc-info">
                 <div className="disc-name">{d.name}</div>
