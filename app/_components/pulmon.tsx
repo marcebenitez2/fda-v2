@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "./reveal";
 
 export function Pulmon() {
@@ -20,10 +21,16 @@ export function Pulmon() {
           </Reveal>
 
           <Reveal className="pulmon-img" delay=".2s">
+            <Image
+              src="/club/parque-arbolado.jpg"
+              alt="Arboleda y sector de juegos del predio del club"
+              fill
+              sizes="(max-width: 980px) 100vw, 45vw"
+              className="photo-cover"
+            />
             <span className="corner-badge">Pulmón de Zona Sur</span>
             <div className="img-tag">
-              <span>Foto · Senderos / Arboleda</span>
-              <span>1200×1500</span>
+              <span>Arboleda del club</span>
             </div>
           </Reveal>
         </div>

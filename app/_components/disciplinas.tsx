@@ -1,6 +1,16 @@
+import Image from "next/image";
 import { Reveal } from "./reveal";
 
-const disciplines = [
+type Discipline = {
+  num: string;
+  name: string;
+  photo: string;
+  image?: string;
+  alt?: string;
+  tags: string[];
+};
+
+const disciplines: Discipline[] = [
   {
     num: "01",
     name: "Arquería",
@@ -71,6 +81,8 @@ const disciplines = [
     num: "12",
     name: "Grupo Scout",
     photo: "Foto · Grupo Scout",
+    image: "/club/scouts-ronda.webp",
+    alt: "Grupo Scout Domingo Matheu reunido en ronda en el predio",
     tags: ["Aire libre", "Familias"],
   },
 ];
@@ -97,8 +109,17 @@ export function Disciplinas() {
           {disciplines.map((d) => (
             <div key={d.num} className="disc">
               <div className="disc-photo">
+                {d.image && (
+                  <Image
+                    src={d.image}
+                    alt={d.alt ?? d.name}
+                    fill
+                    sizes="(max-width: 760px) 50vw, 25vw"
+                    className="photo-cover"
+                  />
+                )}
                 <span className="disc-num-tag">{d.num}</span>
-                <span className="ph">{d.photo}</span>
+                {!d.image && <span className="ph">{d.photo}</span>}
                 <span className="disc-arrow">↗</span>
               </div>
               <div className="disc-info">

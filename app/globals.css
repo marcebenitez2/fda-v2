@@ -509,6 +509,10 @@ section {
   background: var(--green);
   opacity: 0.35;
 }
+.img-slot.has-photo::before { display: none; }
+.photo-cover { object-fit: cover; }
+.photo-cover--entrance { object-position: center 45%; }
+.photo-cover--pool { object-position: 62% center; }
 .img-slot .tag {
   position: absolute;
   bottom: 14px;
@@ -518,6 +522,7 @@ section {
   padding: 6px 10px;
   border-radius: 999px;
   font-size: 10px;
+  z-index: 1;
 }
 .img-slot .center-label {
   background: rgba(251, 248, 239, 0.92);
@@ -634,6 +639,10 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: end;
+  z-index: 1;
+  background: rgba(15, 42, 31, 0.8);
+  padding: 8px 12px;
+  border-radius: 999px;
 }
 .pulmon-img .corner-badge {
   position: absolute;
@@ -648,6 +657,7 @@ section {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 500;
+  z-index: 1;
 }
 .leaf {
   position: absolute;
@@ -885,6 +895,7 @@ section {
   font-family: var(--f-mono);
   font-size: 9px;
   letter-spacing: 0.16em;
+  z-index: 1;
 }
 .card-body {
   padding: 22px 24px 24px;

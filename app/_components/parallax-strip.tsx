@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 export function ParallaxStrip() {
@@ -55,17 +56,35 @@ export function ParallaxStrip() {
       className="hero-strip reveal"
       style={{ "--d": ".3s" } as React.CSSProperties}
     >
-      <div className="img-slot" data-parallax="0.06">
-        <span className="center-label">Foto · del predio</span>
-        <span className="tag">hero · 1600×1000</span>
+      <div className="img-slot has-photo" data-parallax="0.06">
+        <Image
+          src="/club/entrada.jpg"
+          alt="Entrada arbolada del Club Social y Deportivo Fábrica de Armas Domingo Matheu"
+          fill
+          sizes="(max-width: 760px) 65vw, 50vw"
+          className="photo-cover photo-cover--entrance"
+        />
+        <span className="tag">Nuestro club</span>
       </div>
-      <div className="img-slot" data-parallax="0.10">
-        <span className="center-label">Pileta</span>
-        <span className="tag">800×1000</span>
+      <div className="img-slot has-photo" data-parallax="0.10">
+        <Image
+          src="/club/pileta.jpg"
+          alt="Pileta al aire libre con trampolín en el club"
+          fill
+          sizes="(max-width: 760px) 35vw, 25vw"
+          className="photo-cover photo-cover--pool"
+        />
+        <span className="tag">Verano en la pileta</span>
       </div>
-      <div className="img-slot" data-parallax="0.14">
-        <span className="center-label">Familia en el quincho</span>
-        <span className="tag">900×1000</span>
+      <div className="img-slot has-photo" data-parallax="0.14">
+        <Image
+          src="/club/familia-festejo.jpg"
+          alt="Familia reunida durante el festejo del club en el predio"
+          fill
+          sizes="25vw"
+          className="photo-cover"
+        />
+        <span className="tag">Un club de familia</span>
       </div>
     </div>
   );

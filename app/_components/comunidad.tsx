@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "./reveal";
 
 export function Comunidad() {
@@ -6,15 +7,27 @@ export function Comunidad() {
       <div className="wrap">
         <div className="comu-grid">
           <Reveal className="comu-img-stack">
-            <div className="img-slot a">
-              <span className="center-label">Foto · Sobremesa familiar</span>
-              <span className="tag">1000×1200</span>
+            <div className="img-slot has-photo a">
+              <Image
+                src="/club/familia-parque.jpg"
+                alt="Familia reunida en una mesa del club durante su festejo"
+                fill
+                sizes="(max-width: 980px) 60vw, 35vw"
+                className="photo-cover"
+              />
+              <span className="tag">Compartir en familia</span>
             </div>
-            <div className="img-slot b">
-              <span className="center-label">Foto · Patín / Cancha</span>
-              <span className="tag">800×900</span>
+            <div className="img-slot has-photo b">
+              <Image
+                src="/club/scouts-juego.webp"
+                alt="Chicos del Grupo Scout Domingo Matheu jugando en el predio"
+                fill
+                sizes="(max-width: 980px) 50vw, 27vw"
+                className="photo-cover"
+              />
+              <span className="tag">Jugar al aire libre</span>
             </div>
-            <div className="badge">Tres generaciones · una sola cancha</div>
+            <div className="badge">Un club hecho entre todos</div>
           </Reveal>
 
           <Reveal delay=".15s">

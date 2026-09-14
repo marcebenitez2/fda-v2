@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "./reveal";
 
 export function Instalaciones() {
@@ -19,9 +20,15 @@ export function Instalaciones() {
 
         <div className="instal-grid">
           <Reveal className="card pileta">
-            <div className="card-photo">
-              <span className="ph">Foto · Pileta</span>
-              <span className="photo-tag">1600×900</span>
+            <div className="card-photo has-photo">
+              <Image
+                src="/club/pileta.jpg"
+                alt="Pileta del club con sector de trampolín"
+                fill
+                sizes="(max-width: 760px) 100vw, 55vw"
+                className="photo-cover photo-cover--pool"
+              />
+              <span className="photo-tag">Pileta del club</span>
             </div>
             <div className="card-body">
               <div className="num">01 · Pileta</div>
@@ -81,9 +88,15 @@ export function Instalaciones() {
           </Reveal>
 
           <Reveal className="card eventos" delay=".25s">
-            <div className="card-photo">
-              <span className="ph">Foto · Mesas</span>
-              <span className="photo-tag">800×600</span>
+            <div className="card-photo has-photo">
+              <Image
+                src="/club/mesas-festejo.jpg"
+                alt="Familias compartiendo una mesa bajo los árboles del club"
+                fill
+                sizes="(max-width: 760px) 100vw, 30vw"
+                className="photo-cover"
+              />
+              <span className="photo-tag">Mesas al aire libre</span>
             </div>
             <div className="card-body">
               <div className="num">05 · Mesas y rincones</div>
