@@ -78,6 +78,13 @@ const disciplines: Discipline[] = [
     alt: "Grupo Scout Domingo Matheu reunido en ronda en el predio",
   },
   {
+    name: "Vóley",
+    photo: "Foto · Vóley",
+    image: "/club/voley.png",
+    alt: "Jugadoras de vóley entrenando en la cancha al aire libre del club",
+    imageClassName: "photo-cover--volleyball",
+  },
+  {
     name: "Hockey",
     photo: "Foto · Hockey",
     image: "/club/hockey-entrenamiento.png",
@@ -92,14 +99,14 @@ export function Disciplinas() {
       <div className="wrap">
         <div className="section-head">
           <Reveal>
-            <div className="eyebrow">12 disciplinas</div>
+            <div className="eyebrow">13 disciplinas</div>
             <h2 className="display h-lg">
               Tu próxima <em>disciplina favorita</em>, te estamos esperando.
             </h2>
           </Reveal>
           <Reveal className="right" delay=".15s">
             Desde el arco y el patín hasta el wing chun y el ultimate frisbee —
-            doce disciplinas con su cancha, su gente y sus horarios. Todas con
+            trece disciplinas con su cancha, su gente y sus horarios. Todas con
             el espíritu del club.
           </Reveal>
         </div>
@@ -113,7 +120,7 @@ export function Disciplinas() {
                     src={d.image}
                     alt={d.alt ?? d.name}
                     fill
-                    sizes="(max-width: 760px) 50vw, 25vw"
+                    sizes="(max-width: 760px) 50vw, (max-width: 1100px) 33vw, 20vw"
                     className={`photo-cover${d.imageClassName ? ` ${d.imageClassName}` : ""}`}
                   />
                 )}

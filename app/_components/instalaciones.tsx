@@ -41,41 +41,33 @@ export function Instalaciones() {
           </Reveal>
 
           <Reveal className="card salon" delay=".1s">
-            <div className="card-photo">
-              <span className="ph">Foto · Salón de eventos</span>
+            <div className="card-photo has-photo">
+              <Image
+                src="/club/salon-eventos.png"
+                alt="Salón de eventos del club preparado para una celebración"
+                fill
+                sizes="(max-width: 760px) 100vw, 42vw"
+                className="photo-cover photo-cover--event-hall"
+              />
             </div>
             <div className="card-body">
               <div className="num">02 · Salón de eventos</div>
               <h3>Un salón grande para cada celebración.</h3>
-              <p>
-                Cumpleaños, casamientos, fiestas de egresados. Cocina y barra
-                incluidas.
-              </p>
-              <span className="pill">Capacidad 200+</span>
-            </div>
-          </Reveal>
-
-          <Reveal className="card quincho" delay=".15s">
-            <div className="card-photo">
-              <span className="ph">Foto · Quinchos</span>
-            </div>
-            <div className="card-body">
-              <div className="num">03 · Dos quinchos</div>
-              <h3>Dos quinchos, muchas mesas.</h3>
-              <p>
-                Para que el asado de los domingos no sea problema. Parrillas y
-                mesas grandes.
-              </p>
-              <span className="pill">Reserva online</span>
             </div>
           </Reveal>
 
           <Reveal className="card parking" delay=".2s">
-            <div className="card-photo">
-              <span className="ph">Foto · Estacionamiento</span>
+            <div className="card-photo has-photo">
+              <Image
+                src="/club/estacionamiento.png"
+                alt="Estacionamiento arbolado e iluminado dentro del predio del club"
+                fill
+                sizes="(max-width: 760px) 100vw, 33vw"
+                className="photo-cover"
+              />
             </div>
             <div className="card-body">
-              <div className="num">04 · Estacionamiento</div>
+              <div className="num">03 · Estacionamiento</div>
               <h3>Vení tranquilo.</h3>
               <p>
                 Estacionamiento amplio dentro del predio, sin vueltas.
@@ -94,7 +86,7 @@ export function Instalaciones() {
               />
             </div>
             <div className="card-body">
-              <div className="num">05 · Mesas y rincones</div>
+              <div className="num">04 · Mesas y rincones</div>
               <h3>Muchas mesas al aire libre.</h3>
             </div>
           </Reveal>

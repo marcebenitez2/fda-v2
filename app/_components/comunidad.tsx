@@ -53,10 +53,8 @@ export function Comunidad() {
               </li>
               <li>
                 <span className="n">02</span>
-                <span className="t">
-                  Becas deportivas para chicos del barrio
-                </span>
-                <span className="d">Comisión</span>
+                <span className="t">Actividades para todas las edades</span>
+                <span className="d">Disciplinas</span>
               </li>
               <li>
                 <span className="n">03</span>

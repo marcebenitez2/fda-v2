@@ -518,6 +518,8 @@ section {
 .photo-cover--wing-chun { object-position: center 35%; }
 .photo-cover--skating { object-position: center 42%; }
 .photo-cover--hockey { object-position: center 48%; }
+.photo-cover--volleyball { object-position: center 58%; }
+.photo-cover--event-hall { object-position: center 42%; }
 
 /* Marquee */
 .marquee {
@@ -731,19 +733,34 @@ section {
 }
 .disc-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   gap: 22px;
+}
+.disc {
+  grid-column: span 2;
+}
+.disc:nth-last-child(3) {
+  grid-column: 3 / span 2;
 }
 @media (max-width: 1100px) {
   .disc-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 18px;
+  }
+  .disc:nth-last-child(3) {
+    grid-column: span 2;
+  }
+  .disc:last-child {
+    grid-column: 3 / span 2;
   }
 }
 @media (max-width: 760px) {
   .disc-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 14px;
+  }
+  .disc:last-child {
+    grid-column: 2 / span 2;
   }
 }
 .disc {
@@ -945,17 +962,13 @@ section {
   grid-column: span 5;
   grid-row: span 2;
 }
-.card.quincho {
+.card.parking {
   grid-column: span 5;
   grid-row: span 2;
 }
-.card.parking {
-  grid-column: span 4;
-  grid-row: span 2;
-}
 .card.eventos {
-  grid-column: span 3;
-  grid-row: span 2;
+  grid-column: span 7;
+  grid-row: span 1;
 }
 
 .card.salon {
@@ -976,36 +989,18 @@ section {
   color: var(--green-deep);
 }
 .card.salon .card-photo {
+  min-height: 230px;
   background:
     repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.04) 0 12px, rgba(255, 255, 255, 0.08) 12px 24px), #1d4530;
+}
+.card.salon .card-body {
+  padding-top: 18px;
+  padding-bottom: 20px;
 }
 .card.salon .card-photo .ph {
   background: rgba(20, 53, 39, 0.6);
   color: var(--cream);
   border-color: rgba(246, 241, 228, 0.35);
-}
-
-.card.quincho {
-  background: var(--yellow);
-  border: 0;
-}
-.card.quincho h3 {
-  color: var(--green-deep);
-}
-.card.quincho .num {
-  color: rgba(20, 53, 39, 0.65);
-}
-.card.quincho p {
-  color: rgba(20, 53, 39, 0.78);
-}
-.card.quincho .pill {
-  background: var(--green-deep);
-  color: var(--yellow);
-}
-.card.quincho .card-photo {
-  background:
-    repeating-linear-gradient(45deg, rgba(20, 53, 39, 0.08) 0 12px, rgba(20, 53, 39, 0.14) 12px 24px),
-    rgba(255, 255, 255, 0.3);
 }
 
 .card.parking,
@@ -1014,6 +1009,13 @@ section {
 }
 .card.eventos {
   background: var(--cream-2);
+  flex-direction: row;
+}
+.card.eventos .card-photo {
+  flex: 0 0 58%;
+}
+.card.eventos .card-body {
+  justify-content: center;
 }
 
 @media (max-width: 880px) {
@@ -1025,17 +1027,17 @@ section {
     grid-column: span 6;
     grid-row: span 2;
   }
-  .card.quincho {
+  .card.parking {
     grid-column: span 6;
     grid-row: span 2;
   }
-  .card.parking {
-    grid-column: span 3;
-    grid-row: span 2;
-  }
   .card.eventos {
-    grid-column: span 3;
+    grid-column: span 6;
     grid-row: span 2;
+    flex-direction: column;
+  }
+  .card.eventos .card-photo {
+    flex: 1;
   }
 }
 
