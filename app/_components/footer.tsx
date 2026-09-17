@@ -26,11 +26,24 @@ export function Footer() {
           </div>
           <div className="foot-col">
             <h4>Contacto</h4>
-            <a href="tel:+5491100000000">+54 9 11 0000-0000</a>
-            <a href="mailto:hola@fabricadearmas.club">
-              hola@fabricadearmas.club
+            <a href="tel:+5493413560193">+54 9 3413 56-0193</a>
+            <a href="mailto:clubfabricadearmas@gmail.com">
+              clubfabricadearmas@gmail.com
             </a>
-            <a href="#">Cómo llegar</a>
+            <a
+              href="https://www.instagram.com/clubdomingomatheurosario?stkn=MWp2dGdxdm51dDYydg=="
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram
+            </a>
+            <a
+              href="https://maps.app.goo.gl/xJNqLx5BMPVVyET7A"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Cómo llegar
+            </a>
           </div>
         </div>
         <div className="foot-bottom">

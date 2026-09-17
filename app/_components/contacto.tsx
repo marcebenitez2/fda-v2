@@ -14,29 +14,24 @@ export function Contacto() {
 
         <div className="contacto-grid">
           <Reveal>
-            <p
-              style={{
-                fontSize: 17,
-                lineHeight: 1.65,
-                color: "rgba(246,241,228,0.78)",
-                maxWidth: "38ch",
-              }}
-            >
-              Dejanos tus datos y te llamamos para coordinar una visita guiada,
-              contarte sobre disciplinas, cuotas y reservas de quinchos.
-            </p>
             <div className="info-block">
               <div className="label">Dirección</div>
               <div className="value">
-                Av. Principal s/n
-                <br />
-                Zona Sur · Rosario
+                <a
+                  href="https://maps.app.goo.gl/xJNqLx5BMPVVyET7A"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Calle 1209 s/n
+                  <br />
+                  Rosario · Santa Fe
+                </a>
               </div>
             </div>
             <div className="info-block">
               <div className="label">Teléfono · WhatsApp</div>
               <div className="value">
-                <a href="tel:+5491100000000">+54 9 11 0000-0000</a>
+                <a href="tel:+5493413560193">+54 9 3413 56-0193</a>
               </div>
             </div>
             <div className="info-block">
@@ -48,16 +43,66 @@ export function Contacto() {
               </div>
             </div>
             <div className="info-block">
-              <div className="label">Redes</div>
+              <div className="label">Correo</div>
               <div className="value">
-                <a href="mailto:hola@fabricadearmas.club">
-                  hola@fabricadearmas.club
+                <a href="mailto:clubfabricadearmas@gmail.com">
+                  clubfabricadearmas@gmail.com
                 </a>
               </div>
+            </div>
+            <div className="info-block">
+              <div className="label">Instagram</div>
+              <div className="value">
+                <a
+                  className="instagram-link"
+                  href="https://www.instagram.com/clubdomingomatheurosario?stkn=MWp2dGdxdm51dDYydg=="
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle
+                      cx="17.5"
+                      cy="6.5"
+                      r="1"
+                      fill="currentColor"
+                      stroke="none"
+                    />
+                  </svg>
+                  <span>@clubdomingomatheurosario</span>
+                </a>
+              </div>
+            </div>
+            <div className="contact-map">
+              <iframe
+                title="Ubicación del Club Social y Deportivo F. A. Domingo Matheu"
+                src="https://www.google.com/maps?q=-32.996548,-60.6814769&z=16&output=embed"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+              <a
+                href="https://maps.app.goo.gl/xJNqLx5BMPVVyET7A"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Abrir en Google Maps ↗
+              </a>
             </div>
           </Reveal>
 
           <Reveal delay=".15s">
+            <p className="contacto-form-intro">
+              Dejanos tus datos y te llamamos para coordinar una visita guiada,
+              contarte sobre disciplinas, cuotas y reservas de quinchos.
+            </p>
             <ContactForm />
           </Reveal>
         </div>

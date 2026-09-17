@@ -60,7 +60,7 @@ export function ContactForm() {
             id="telefono"
             name="telefono"
             type="tel"
-            placeholder="+54 9 11 0000-0000"
+            placeholder="+54 9 341 000-0000"
           />
         </div>
         <div className="field">
