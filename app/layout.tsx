@@ -2,6 +2,14 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000");
+
 const bricolage = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin"],
@@ -19,9 +27,40 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CLUB S&D F.A. DOMINGO MATHEU · +80 años",
+  metadataBase: new URL(siteUrl),
+  title: "Club Domingo Matheu | Deportes y comunidad en Rosario",
   description:
-    "Club familiar en Zona Sur. +80 años de historia, 12 disciplinas, pileta, quinchos y salón de eventos.",
+    "Club familiar en Zona Sur de Rosario con más de 80 años de historia, 13 disciplinas, pileta, salón de eventos y un amplio predio arbolado.",
+  applicationName: "Club Domingo Matheu",
+  keywords: [
+    "Club Domingo Matheu",
+    "club en Rosario",
+    "club Zona Sur Rosario",
+    "deportes en Rosario",
+    "pileta en Rosario",
+    "salón de eventos en Rosario",
+  ],
+  authors: [{ name: "Club S&D F.A. Domingo Matheu" }],
+  creator: "Club S&D F.A. Domingo Matheu",
+  publisher: "Club S&D F.A. Domingo Matheu",
+  category: "sports",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    siteName: "Club Domingo Matheu",
+    title: "Club Domingo Matheu | Deportes y comunidad en Rosario",
+    description:
+      "Más de 80 años de historia en Zona Sur de Rosario. Deportes, pileta, eventos y comunidad.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Club Domingo Matheu | Deportes y comunidad en Rosario",
+    description:
+      "Más de 80 años de historia en Zona Sur de Rosario. Deportes, pileta, eventos y comunidad.",
+  },
 };
 
 export default function RootLayout({
