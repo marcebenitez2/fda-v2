@@ -1,5 +1,6 @@
 import { Nav } from "./_components/nav";
 import { Hero } from "./_components/hero";
+import { LogoFlightScript } from "./_components/logo-flight-script";
 import { Recorrido } from "./_components/recorrido";
 import { Pulmon } from "./_components/pulmon";
 import { Disciplinas } from "./_components/disciplinas";
@@ -46,6 +47,7 @@ export default function Page() {
       />
       <Nav />
       <Hero />
+      <LogoFlightScript />
       <Recorrido />
       <Pulmon />
       <Disciplinas />

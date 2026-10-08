@@ -142,7 +142,7 @@ section {
     border-color 0.35s ease;
   border-bottom: 1px solid transparent;
 }
-.nav.is-scrolled {
+[data-scrolled] .nav {
   background: rgba(246, 241, 228, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -166,11 +166,14 @@ section {
   width: 100%;
   height: auto;
 }
-.logo-fly.is-active {
+[data-logo-active] .logo-fly {
   visibility: visible;
 }
-.logo-fly.is-active.is-docked {
+[data-logo-active][data-logo-docked] .logo-fly {
   pointer-events: auto;
+}
+[data-logo-active] .hero-logo {
+  visibility: hidden;
 }
 .nav-links {
   display: flex;

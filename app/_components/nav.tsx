@@ -1,10 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
-import { useLogoFlight } from "./use-logo-flight";
 import { useMenu } from "./use-menu";
-import { useScrolled } from "./use-scrolled";
 
 const NAV_LINKS = [
   { href: "#pulmon", label: "El club" },
@@ -15,18 +12,12 @@ const NAV_LINKS = [
 ];
 
 export function Nav() {
-  const scrolled = useScrolled();
   const menu = useMenu();
-  const flyerRef = useRef<HTMLAnchorElement>(null);
-  const slotRef = useRef<HTMLSpanElement>(null);
-  useLogoFlight(flyerRef, slotRef, ".hero-logo", menu.isOpen);
 
   return (
     <>
-      <nav
-        className={`nav${scrolled ? " is-scrolled" : ""}${menu.isOpen ? " is-open" : ""}`}
-      >
-        <span ref={slotRef} className="logo-slot" aria-hidden="true" />
+      <nav className={`nav${menu.isOpen ? " is-open" : ""}`}>
+        <span className="logo-slot" aria-hidden="true" />
 
         <div className="nav-links" id="nav-menu">
           {NAV_LINKS.map((link) => (
@@ -54,7 +45,13 @@ export function Nav() {
         </button>
       </nav>
 
-      <a ref={flyerRef} href="#top" className="logo-fly" onClick={menu.close}>
+      {/* Positioned by the inline logo flight script before hydration. */}
+      <a
+        href="#top"
+        className="logo-fly"
+        onClick={menu.close}
+        suppressHydrationWarning
+      >
         <Image
           src="/escudo-limpio.svg"
           alt="Inicio"
