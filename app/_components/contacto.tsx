@@ -1,5 +1,7 @@
 import { Reveal } from "./reveal";
 import { ContactForm } from "./contact-form";
+import { CLUB_PHONE } from "./disciplines";
+import { whatsappUrl } from "./whatsapp";
 
 export function Contacto() {
   return (
@@ -22,24 +24,36 @@ export function Contacto() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Calle 1209 s/n
+                  Calle 1209 n° 3350
                   <br />
                   Rosario · Santa Fe
                 </a>
               </div>
             </div>
             <div className="info-block">
-              <div className="label">Teléfono · WhatsApp</div>
+              <div className="label">WhatsApp</div>
               <div className="value">
-                <a href="tel:+5493413560193">+54 9 3413 56-0193</a>
+                <a
+                  href={whatsappUrl(
+                    CLUB_PHONE,
+                    "¡Hola! Quería hacer una consulta.",
+                  )}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {CLUB_PHONE}
+                </a>
               </div>
+              <div className="note">Solo mensajes. No atendemos llamadas.</div>
             </div>
             <div className="info-block">
-              <div className="label">Horarios de atención</div>
+              <div className="label">Horarios del club</div>
               <div className="value">
-                Lun a Vie · 9 a 22h
+                Lunes a viernes · 14 a 22 h
                 <br />
-                Sáb y Dom · 9 a 20h
+                Sábados · 9 a 00 h
+                <br />
+                Domingos · 9 a 22 h
               </div>
             </div>
             <div className="info-block">

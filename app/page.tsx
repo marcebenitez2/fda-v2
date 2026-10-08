@@ -21,7 +21,7 @@ export default function Page() {
     telephone: "+54 9 3413 56-0193",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Calle 1209 s/n",
+      streetAddress: "Calle 1209 3350",
       addressLocality: "Rosario",
       addressRegion: "Santa Fe",
       addressCountry: "AR",
@@ -31,6 +31,26 @@ export default function Page() {
       latitude: -32.996548,
       longitude: -60.6814769,
     },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "14:00",
+        closes: "22:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "09:00",
+        closes: "24:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Sunday",
+        opens: "09:00",
+        closes: "22:00",
+      },
+    ],
     hasMap: "https://maps.app.goo.gl/xJNqLx5BMPVVyET7A",
     sameAs: [
       "https://www.instagram.com/clubdomingomatheurosario?stkn=MWp2dGdxdm51dDYydg==",

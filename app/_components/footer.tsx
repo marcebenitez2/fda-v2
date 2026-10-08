@@ -1,3 +1,6 @@
+import { CLUB_PHONE } from "./disciplines";
+import { whatsappUrl } from "./whatsapp";
+
 export function Footer() {
   return (
     <footer>
@@ -19,15 +22,14 @@ export function Footer() {
             <a href="/novedades">Novedades</a>
           </div>
           <div className="foot-col">
-            <h4>Socios</h4>
-            <a href="#contacto">Asociarse</a>
-            <a href="#">Cuotas</a>
-            <a href="#">Reservas</a>
-            <a href="#">Reglamento</a>
-          </div>
-          <div className="foot-col">
             <h4>Contacto</h4>
-            <a href="tel:+5493413560193">+54 9 3413 56-0193</a>
+            <a
+              href={whatsappUrl(CLUB_PHONE, "¡Hola! Quería hacer una consulta.")}
+              target="_blank"
+              rel="noreferrer"
+            >
+              WhatsApp {CLUB_PHONE}
+            </a>
             <a href="mailto:clubfabricadearmas@gmail.com">
               clubfabricadearmas@gmail.com
             </a>

@@ -1455,6 +1455,11 @@ section {
 .info-block .value a:hover {
   color: var(--yellow);
 }
+.info-block .note {
+  margin-top: 6px;
+  font-size: 13px;
+  color: rgba(246, 241, 228, 0.6);
+}
 .instagram-link {
   display: inline-flex;
   align-items: center;
@@ -1897,7 +1902,7 @@ footer {
 }
 .foot-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 40px;
 }
 @media (max-width: 880px) {
