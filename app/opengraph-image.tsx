@@ -1,10 +1,18 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export const alt = "Club Domingo Matheu — Más de 80 años en Zona Sur de Rosario";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpenGraphImage() {
+export default async function OpenGraphImage(): Promise<ImageResponse> {
+  const logoData = await readFile(
+    join(process.cwd(), "public/escudo-limpio.svg"),
+    "base64",
+  );
+  const logoSrc = `data:image/svg+xml;base64,${logoData}`;
+
   return new ImageResponse(
     <div
       style={{
@@ -30,22 +38,7 @@ export default function OpenGraphImage() {
           Más de 80 años de deporte, familia y comunidad.
         </div>
       </div>
-      <div
-        style={{
-          width: 210,
-          height: 230,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          border: "8px solid #e3ac35",
-          borderRadius: "44% 44% 50% 50% / 20% 20% 70% 70%",
-          color: "#e3ac35",
-          fontSize: 94,
-          fontWeight: 900,
-        }}
-      >
-        +
-      </div>
+      <img src={logoSrc} alt="" width={260} height={282} />
     </div>,
     size,
   );
