@@ -5,3 +5,5 @@ docs
 pnpm-lock.yaml
 package-lock.json
 *.md
+test-results
+playwright-report

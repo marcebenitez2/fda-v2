@@ -13,9 +13,11 @@ npm run start         # Start production server
 npm run lint          # Run ESLint (eslint directly — not next lint, which was removed in v16)
 npm run format        # Format everything with Prettier
 npm run format:check  # Check formatting without writing
+npm run test:e2e      # Build, start and run the Playwright end-to-end tests
+npm run test:e2e:report  # Open the HTML report of the last test run
 ```
 
-No test runner is configured yet.
+**Tests:** Playwright end-to-end tests live in `e2e/` and run against a production build in two projects: desktop Chrome and iPhone Safari (WebKit). Several past bugs only reproduced in Safari, so keep both projects. Tests import the site's data files (`club-info.ts`, `disciplines.ts`) instead of duplicating expected values. The first run on a new machine needs `npx playwright install chromium webkit`. Run the suite before pushing changes that affect behavior.
 
 **Dependencies:** both `pnpm-lock.yaml` and `package-lock.json` are committed. When adding a dependency, update both (`pnpm add <pkg>` and then `npm install --package-lock-only`) so the deploy installs the same versions whichever package manager runs.
 
