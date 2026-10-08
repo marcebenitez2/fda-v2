@@ -41,9 +41,8 @@ export function Comunidad() {
                 maxWidth: "52ch",
               }}
             >
-              Acá los abuelos vinieron de chicos, los nietos arrancaron
-              pateando una pelota y los vecinos se siguen cruzando todos los
-              sábados. Eso somos.
+              Los abuelos vinieron de chicos, los nietos arrancaron pateando una
+              pelota y los vecinos se siguen cruzando todos los sábados.
             </p>
             <ul className="comu-list">
               <li>

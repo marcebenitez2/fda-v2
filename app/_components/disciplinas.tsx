@@ -101,7 +101,7 @@ export function Disciplinas() {
           <Reveal>
             <div className="eyebrow">13 disciplinas</div>
             <h2 className="display h-lg">
-              Tu próxima <em>disciplina favorita</em>, te estamos esperando.
+              Tu próxima <em>disciplina favorita</em> te está esperando.
             </h2>
           </Reveal>
           <Reveal className="right" delay=".15s">
