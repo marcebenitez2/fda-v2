@@ -869,8 +869,10 @@ section {
   flex-direction: column;
   transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.disc:hover {
-  transform: translateY(-6px);
+@media (hover: hover) {
+  .disc:hover {
+    transform: translateY(-6px);
+  }
 }
 .disc-photo {
   aspect-ratio: 4 / 5;
@@ -909,15 +911,18 @@ section {
   color: var(--lime);
   transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.disc:hover .disc-hint {
-  transform: scale(1.12) rotate(-8deg);
+@media (hover: hover) {
+  .disc:hover .disc-hint {
+    transform: scale(1.12) rotate(-8deg);
+  }
 }
 .disc-contact {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
   z-index: 2;
+  /* Explicit width: Safari sizes absolute boxes with aspect-ratio to their content. */
+  width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
   display: flex;
@@ -1000,8 +1005,10 @@ section {
   font-weight: 700;
   transition: transform 0.2s ease;
 }
-.disc-contact-link:hover .disc-contact-cta {
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .disc-contact-link:hover .disc-contact-cta {
+    transform: translateY(-2px);
+  }
 }
 @media (max-width: 760px) {
   .disc-contact {
