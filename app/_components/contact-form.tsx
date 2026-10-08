@@ -1,25 +1,11 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { CLUB_PHONE } from "./disciplines";
+import { INTEREST_OPTIONS, useContactForm } from "./use-contact-form";
+import { whatsappUrl } from "./whatsapp";
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState({ nombre: false, email: false });
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const nombre = (data.get("nombre") as string).trim();
-    const email = (data.get("email") as string).trim();
-
-    const newErrors = { nombre: !nombre, email: !email };
-    setErrors(newErrors);
-    if (newErrors.nombre || newErrors.email) return;
-
-    setSubmitted(true);
-    e.currentTarget.reset();
-    setTimeout(() => setSubmitted(false), 6000);
-  }
+  const { status, errors, handleSubmit } = useContactForm();
 
   return (
     <form noValidate onSubmit={handleSubmit}>
@@ -66,12 +52,9 @@ export function ContactForm() {
         <div className="field">
           <label htmlFor="interes">Me interesa</label>
           <select id="interes" name="interes">
-            <option value="socio">Asociarme al club</option>
-            <option value="disciplina">Una disciplina puntual</option>
-            <option value="quincho">Reservar un quincho</option>
-            <option value="salon">Alquilar el salón de eventos</option>
-            <option value="visita">Visitar el predio</option>
-            <option value="otro">Otro</option>
+            {INTEREST_OPTIONS.map((option) => (
+              <option key={option}>{option}</option>
+            ))}
           </select>
         </div>
       </div>
@@ -84,9 +67,21 @@ export function ContactForm() {
           placeholder="Contanos qué necesitás…"
         />
       </div>
+      <input
+        type="text"
+        name="_honey"
+        className="form-honeypot"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
       <div className="submit-row">
-        <button type="submit" className="submit">
-          Enviar consulta
+        <button
+          type="submit"
+          className="submit"
+          disabled={status === "sending"}
+        >
+          {status === "sending" ? "Enviando…" : "Enviar consulta"}
           <svg
             width="16"
             height="16"
@@ -103,9 +98,22 @@ export function ContactForm() {
         </button>
         <div className="submit-meta">Te respondemos en 24h</div>
       </div>
-      {submitted && (
-        <div className="form-success is-on">
+      {status === "sent" && (
+        <div className="form-success is-on" role="status">
           ✓ ¡Gracias! Recibimos tu consulta. Te contactamos a la brevedad.
+        </div>
+      )}
+      {status === "error" && (
+        <div className="form-error" role="alert">
+          No pudimos enviar tu consulta. Probá de nuevo o escribinos por{" "}
+          <a
+            href={whatsappUrl(CLUB_PHONE, "¡Hola! Quería hacer una consulta.")}
+            target="_blank"
+            rel="noreferrer"
+          >
+            WhatsApp al {CLUB_PHONE}
+          </a>
+          .
         </div>
       )}
     </form>

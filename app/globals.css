@@ -1611,6 +1611,30 @@ form {
 .form-success.is-on {
   display: block;
 }
+.form-error {
+  margin-top: 18px;
+  padding: 18px 22px;
+  background: rgba(242, 198, 52, 0.12);
+  border: 1px solid rgba(242, 198, 52, 0.45);
+  border-radius: 14px;
+  color: var(--yellow-soft);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.form-error a {
+  text-decoration: underline;
+}
+.form-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.submit:disabled {
+  opacity: 0.7;
+  cursor: progress;
+}
 
 /* ───────── FOOTER ───────── */
 footer {
