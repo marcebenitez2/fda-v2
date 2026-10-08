@@ -1,9 +1,7 @@
 import Image from "next/image";
 import { FACILITIES, type Facility } from "./facilities";
+import { listNumber } from "./list-number";
 import { Reveal } from "./reveal";
-
-const cardNumber = (index: number): string =>
-  String(index + 1).padStart(2, "0");
 
 function FacilityCard({
   facility,
@@ -27,7 +25,7 @@ function FacilityCard({
       </div>
       <div className="card-body">
         <div className="num">
-          {cardNumber(index)} · {facility.label}
+          {listNumber(index)} · {facility.label}
         </div>
         <h3>{facility.title}</h3>
         {facility.description && <p>{facility.description}</p>}
