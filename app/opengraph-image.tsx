@@ -1,6 +1,5 @@
 import { ImageResponse } from "next/og";
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
+import { escudoDataUrl } from "./_lib/escudo-data-url";
 
 export const alt =
   "Club Domingo Matheu — Más de 80 años en Zona Sur de Rosario";
@@ -8,11 +7,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function OpenGraphImage(): Promise<ImageResponse> {
-  const logoData = await readFile(
-    join(process.cwd(), "public/escudo-limpio.svg"),
-    "base64",
-  );
-  const logoSrc = `data:image/svg+xml;base64,${logoData}`;
+  const logoSrc = await escudoDataUrl();
 
   return new ImageResponse(
     <div
