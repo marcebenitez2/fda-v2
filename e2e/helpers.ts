@@ -4,6 +4,10 @@ import type { Page } from "@playwright/test";
 // icons in the test browser; they do not come from the site.
 const BROWSER_NOISE = /^Button failed to load, iconName = /;
 
+// Vercel serves the Analytics script only on its own hosting, so it 404s
+// when the production build runs locally.
+const VERCEL_ONLY = /\/_vercel\//;
+
 // Collects console errors, uncaught exceptions and failed same-origin
 // requests so a test can assert the page loaded cleanly.
 export function trackPageProblems(page: Page): string[] {
@@ -11,18 +15,29 @@ export function trackPageProblems(page: Page): string[] {
   const origin = (url: string): string => new URL(url).origin;
 
   page.on("console", (message) => {
-    if (message.type() === "error" && !BROWSER_NOISE.test(message.text())) {
-      problems.push(`console: ${message.text()}`);
+    const text = message.text();
+    const location = message.location().url;
+    if (
+      message.type() === "error" &&
+      !BROWSER_NOISE.test(text) &&
+      !VERCEL_ONLY.test(location)
+    ) {
+      problems.push(`console: ${text}`);
     }
   });
   page.on("pageerror", (error) => problems.push(`exception: ${error.message}`));
   page.on("requestfailed", (request) => {
-    if (origin(request.url()) === origin(page.url())) {
+    if (
+      origin(request.url()) === origin(page.url()) &&
+      !VERCEL_ONLY.test(request.url())
+    ) {
       problems.push(`request failed: ${request.url()}`);
     }
   });
   page.on("response", (response) => {
-    const sameOrigin = origin(response.url()) === origin(page.url());
+    const sameOrigin =
+      origin(response.url()) === origin(page.url()) &&
+      !VERCEL_ONLY.test(response.url());
     if (
       sameOrigin &&
       response.status() >= 400 &&
