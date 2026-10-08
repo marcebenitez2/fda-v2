@@ -18,9 +18,8 @@ export function ContactForm() {
             type="text"
             placeholder="Tu nombre"
             required
-            style={
-              errors.nombre ? { borderBottomColor: "var(--yellow)" } : undefined
-            }
+            className={errors.nombre ? "has-error" : undefined}
+            aria-invalid={errors.nombre}
           />
         </div>
         <div className="field">
@@ -31,9 +30,8 @@ export function ContactForm() {
             type="email"
             placeholder="vos@email.com"
             required
-            style={
-              errors.email ? { borderBottomColor: "var(--yellow)" } : undefined
-            }
+            className={errors.email ? "has-error" : undefined}
+            aria-invalid={errors.email}
           />
         </div>
       </div>

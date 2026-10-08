@@ -1,0 +1,80 @@
+/* ───────── FOOTER ───────── */
+footer {
+  background: var(--ink);
+  color: rgba(246, 241, 228, 0.7);
+  padding: 80px 0 28px;
+}
+.foot-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+}
+@media (max-width: 880px) {
+  .foot-top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 540px) {
+  .foot-top {
+    grid-template-columns: 1fr;
+  }
+}
+.foot-big {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--cream);
+  margin: 0;
+}
+.foot-big em {
+  font-style: normal;
+  color: var(--yellow);
+}
+.foot-col h4 {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(246, 241, 228, 0.5);
+  margin: 0 0 16px;
+  font-weight: 500;
+}
+.foot-col a {
+  display: block;
+  padding: 4px 0;
+  color: var(--cream);
+  font-size: 14px;
+  transition: color 0.25s;
+}
+.foot-col a:hover {
+  color: var(--yellow);
+}
+.foot-bottom {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(246, 241, 228, 0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: rgba(246, 241, 228, 0.4);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.foot-credit {
+  transition: color 0.2s ease;
+}
+.foot-credit:hover {
+  color: var(--yellow);
+}
+.foot-heart {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+.foot-credit:hover .foot-heart {
+  transform: scale(1.25);
+}

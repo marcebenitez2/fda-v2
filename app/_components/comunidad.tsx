@@ -32,15 +32,7 @@ export function Comunidad() {
             <h2 className="display h-md">
               Un club <em>de familia</em>, de barrio, de toda la vida.
             </h2>
-            <p
-              style={{
-                marginTop: 24,
-                color: "var(--ink-soft)",
-                fontSize: 17,
-                lineHeight: 1.65,
-                maxWidth: "52ch",
-              }}
-            >
+            <p className="comu-lede">
               Los abuelos vinieron de chicos, los nietos arrancaron pateando una
               pelota y los vecinos se siguen cruzando todos los sábados.
             </p>

@@ -1,0 +1,67 @@
+/* ───────── PULMÓN ───────── */
+.pulmon {
+  padding: 140px 0 120px;
+  background: var(--green-deep);
+  color: var(--cream);
+  overflow: hidden;
+  position: relative;
+}
+.pulmon .eyebrow {
+  color: rgba(246, 241, 228, 0.7);
+}
+.pulmon .eyebrow::before {
+  background: var(--lime);
+  opacity: 1;
+}
+.pulmon-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+.pulmon h2 {
+  color: var(--cream);
+  margin-top: 24px;
+}
+.pulmon h2 em {
+  color: var(--lime);
+}
+.pulmon p {
+  color: rgba(246, 241, 228, 0.78);
+  font-size: 17px;
+  line-height: 1.65;
+  max-width: 52ch;
+  margin: 28px 0 0;
+}
+.pulmon-img {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 22px;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.04) 0 14px,
+      rgba(255, 255, 255, 0.08) 14px 28px
+    ),
+    #1d4530;
+}
+.leaf {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50% 8% 50% 8%;
+  background: var(--green);
+  opacity: 0.5;
+  filter: blur(40px);
+  pointer-events: none;
+}
+.leaf.l1 {
+  top: -60px;
+  right: -40px;
+}
+.leaf.l2 {
+  bottom: -80px;
+  left: -60px;
+  background: var(--lime);
+  opacity: 0.18;
+}
