@@ -2,31 +2,35 @@
 
 import { RefObject, useEffect } from "react";
 
+const FLIGHT_MS = 650;
 const FLIGHT_TILT_DEG = -14;
-const SETTLE_MS = 450;
+const FLIGHT_EASING = "cubic-bezier(0.65, 0, 0.35, 1)";
 
-interface Box {
-  cx: number;
-  cy: number;
-  width: number;
-  height: number;
+interface Placement {
+  x: number;
+  y: number;
+  scale: number;
 }
 
-const lerp = (from: number, to: number, t: number): number =>
-  from + (to - from) * t;
+const toTransform = (placement: Placement, tiltDeg = 0): string =>
+  `translate(${placement.x}px, ${placement.y}px) rotate(${tiltDeg}deg) scale(${placement.scale})`;
 
-const easeInOutCubic = (t: number): number =>
-  t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-
-const centerBox = (rect: DOMRect, offsetY: number): Box => ({
-  cx: rect.left + rect.width / 2,
-  cy: rect.top + rect.height / 2 + offsetY,
-  width: rect.width,
-  height: rect.height,
+const midpoint = (from: Placement, to: Placement): Placement => ({
+  x: (from.x + to.x) / 2,
+  y: (from.y + to.y) / 2,
+  scale: (from.scale + to.scale) / 2,
 });
 
-// Flies the flyer from the source element (scrolling with the page)
-// into the fixed slot as the page scrolls past the source.
+// Places a box of the source's size so that it covers `rect`.
+const placementOver = (rect: DOMRect, source: DOMRect): Placement => ({
+  x: rect.left + rect.width / 2 - source.width / 2,
+  y: rect.top + rect.height / 2 - source.height / 2,
+  scale: rect.width / source.width,
+});
+
+// Flies the flyer between the source element and the fixed slot
+// whenever `docked` changes. Runs as a Web Animation so it stays smooth
+// on iOS, where scroll-linked JavaScript lags behind native scrolling.
 export function useLogoFlight(
   flyerRef: RefObject<HTMLElement | null>,
   slotRef: RefObject<HTMLElement | null>,
@@ -39,55 +43,72 @@ export function useLogoFlight(
     const source = document.querySelector<HTMLElement>(sourceSelector);
     if (!flyer || !slot || !source) return;
 
-    let start = centerBox(source.getBoundingClientRect(), window.scrollY);
-    let end = centerBox(slot.getBoundingClientRect(), 0);
-    let frame = 0;
-
-    const render = (): void => {
-      frame = 0;
-      const distance = Math.max(start.cy + start.height / 2 - end.cy, 1);
-      const progress = docked
-        ? 1
-        : Math.min(Math.max(window.scrollY / distance, 0), 1);
-      const t = easeInOutCubic(progress);
-      const cx = lerp(start.cx, end.cx, t);
-      const cy = lerp(start.cy - window.scrollY, end.cy, t);
-      const scale = lerp(1, end.width / start.width, t);
-      const tilt = FLIGHT_TILT_DEG * Math.sin(Math.PI * progress);
-      flyer.style.transform = `translate3d(${cx - start.width / 2}px, ${cy - start.height / 2}px, 0) rotate(${tilt}deg) scale(${scale})`;
-      flyer.classList.toggle("is-docked", progress === 1);
+    const setActive = (active: boolean): void => {
+      flyer.classList.toggle("is-active", active);
+      source.style.visibility = active ? "hidden" : "";
     };
 
-    const measure = (): void => {
-      start = centerBox(source.getBoundingClientRect(), window.scrollY);
-      end = centerBox(slot.getBoundingClientRect(), 0);
-      flyer.style.width = `${start.width}px`;
-      render();
+    const measure = (): { atSource: Placement; atSlot: Placement } => {
+      const sourceRect = source.getBoundingClientRect();
+      flyer.style.width = `${sourceRect.width}px`;
+      return {
+        atSource: placementOver(sourceRect, sourceRect),
+        atSlot: placementOver(slot.getBoundingClientRect(), sourceRect),
+      };
     };
 
-    const onScroll = (): void => {
-      if (!frame) frame = requestAnimationFrame(render);
+    const onResize = (): void => {
+      if (docked && flyer.getAnimations().length === 0) {
+        flyer.style.transform = toTransform(measure().atSlot);
+      }
     };
+    window.addEventListener("resize", onResize);
+    const cleanup = (): void => window.removeEventListener("resize", onResize);
 
-    const wasReady = flyer.classList.contains("is-ready");
-    if (wasReady) flyer.classList.add("is-settling");
-    const settleTimer = window.setTimeout(
-      () => flyer.classList.remove("is-settling"),
-      SETTLE_MS,
-    );
-
-    measure();
+    flyer.classList.toggle("is-docked", docked);
+    const isFirstRun = !flyer.classList.contains("is-ready");
     flyer.classList.add("is-ready");
+    const isActive = flyer.classList.contains("is-active");
 
-    const resizeObserver = new ResizeObserver(measure);
-    resizeObserver.observe(document.body);
-    window.addEventListener("scroll", onScroll, { passive: true });
+    if (isFirstRun || (!docked && !isActive)) {
+      if (docked) flyer.style.transform = toTransform(measure().atSlot);
+      setActive(docked);
+      return cleanup;
+    }
 
-    return () => {
-      window.clearTimeout(settleTimer);
-      cancelAnimationFrame(frame);
-      resizeObserver.disconnect();
-      window.removeEventListener("scroll", onScroll);
-    };
+    const { atSource, atSlot } = measure();
+    const [from, to] = docked ? [atSource, atSlot] : [atSlot, atSource];
+    const running = flyer.getAnimations();
+    const keyframes =
+      running.length > 0
+        ? [
+            { transform: getComputedStyle(flyer).transform },
+            { transform: toTransform(to) },
+          ]
+        : [
+            { transform: toTransform(from) },
+            { transform: toTransform(midpoint(from, to), FLIGHT_TILT_DEG) },
+            { transform: toTransform(to) },
+          ];
+    running.forEach((animation) => animation.cancel());
+
+    setActive(true);
+    flyer.style.transform = toTransform(to);
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const flight = flyer.animate(keyframes, {
+      duration: reducedMotion ? 0 : FLIGHT_MS,
+      easing: FLIGHT_EASING,
+    });
+
+    if (!docked) {
+      flight.finished.then(
+        () => setActive(false),
+        () => undefined,
+      );
+    }
+
+    return cleanup;
   }, [flyerRef, slotRef, sourceSelector, docked]);
 }
