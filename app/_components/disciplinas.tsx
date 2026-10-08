@@ -34,6 +34,9 @@ const disciplines: Discipline[] = [
   {
     name: "Pádel",
     photo: "Foto · Pádel",
+    image: "/club/padel.jpg",
+    alt: "Jugador de pádel preparando el saque en la cancha del club",
+    imageClassName: "photo-cover--padel",
   },
   {
     name: "Patín artístico",
