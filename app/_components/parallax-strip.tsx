@@ -4,6 +4,9 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useReveal } from "./use-reveal";
 
+// Keeps the drift from pushing the photos into the text around the strip.
+const PARALLAX_MAX_OFFSET = 32;
+
 export function ParallaxStrip() {
   const ref = useRef<HTMLDivElement>(null);
   useReveal(ref);
@@ -18,8 +21,12 @@ export function ParallaxStrip() {
       items.forEach((el) => {
         const rect = el.getBoundingClientRect();
         const speed = parseFloat(el.dataset["parallax"] ?? "0");
-        const offset =
+        const drift =
           (rect.top + rect.height / 2 - window.innerHeight / 2) * speed * -1;
+        const offset = Math.max(
+          -PARALLAX_MAX_OFFSET,
+          Math.min(PARALLAX_MAX_OFFSET, drift),
+        );
         el.style.transform = `translateY(${offset.toFixed(1)}px)`;
       });
       ticking = false;
