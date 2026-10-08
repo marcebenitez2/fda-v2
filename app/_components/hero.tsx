@@ -1,6 +1,11 @@
 import Image from 'next/image'
+import { Fragment } from 'react'
 import { Counter } from './counter'
+import { DISCIPLINES } from './disciplines'
 import { ParallaxStrip } from './parallax-strip'
+
+// The track is rendered twice so the marquee can loop seamlessly.
+const MARQUEE_PASSES = [0, 1]
 
 export function Hero() {
   return (
@@ -18,12 +23,12 @@ export function Hero() {
           <div className="hero-side">
             <h1 className="hero-title">CLUB S&amp;D F.A. <span>DOMINGO MATHEU</span></h1>
             <p className="hero-lede">
-              Somos un club de familia, abierto, con muchas hectáreas de <em>árboles y deporte</em>. Doce disciplinas,
+              Somos un club de familia, abierto, con muchas hectáreas de <em>árboles y deporte</em>. Trece disciplinas,
               pileta, dos quinchos y un salón de eventos — todo a la vuelta de tu casa.
             </p>
             <div className="hero-meta">
               <div className="stat">
-                <Counter target={12} />
+                <Counter target={DISCIPLINES.length} />
                 <div className="l">Disciplinas</div>
               </div>
               <div className="stat">
@@ -45,54 +50,14 @@ export function Hero() {
 
       <div className="marquee" aria-hidden="true">
         <div className="marquee-track">
-          <span>Arquería</span>
-          <span className="dot" />
-          <span>Entrenamiento funcional</span>
-          <span className="dot" />
-          <span>Wing Chun</span>
-          <span className="dot" />
-          <span>Pádel</span>
-          <span className="dot" />
-          <span>Patín artístico</span>
-          <span className="dot" />
-          <span>Patín competitivo</span>
-          <span className="dot" />
-          <span>Pelota paleta</span>
-          <span className="dot" />
-          <span>Taekwondo</span>
-          <span className="dot" />
-          <span>Sóftbol</span>
-          <span className="dot" />
-          <span>Ultimate Frisbee</span>
-          <span className="dot" />
-          <span>Hockey</span>
-          <span className="dot" />
-          <span>Grupo Scout</span>
-          <span className="dot" />
-          <span>Arquería</span>
-          <span className="dot" />
-          <span>Entrenamiento funcional</span>
-          <span className="dot" />
-          <span>Wing Chun</span>
-          <span className="dot" />
-          <span>Pádel</span>
-          <span className="dot" />
-          <span>Patín artístico</span>
-          <span className="dot" />
-          <span>Patín competitivo</span>
-          <span className="dot" />
-          <span>Pelota paleta</span>
-          <span className="dot" />
-          <span>Taekwondo</span>
-          <span className="dot" />
-          <span>Sóftbol</span>
-          <span className="dot" />
-          <span>Ultimate Frisbee</span>
-          <span className="dot" />
-          <span>Hockey</span>
-          <span className="dot" />
-          <span>Grupo Scout</span>
-          <span className="dot" />
+          {MARQUEE_PASSES.map((pass) =>
+            DISCIPLINES.map((d) => (
+              <Fragment key={`${pass}-${d.name}`}>
+                <span>{d.name}</span>
+                <span className="dot" />
+              </Fragment>
+            )),
+          )}
         </div>
       </div>
     </section>

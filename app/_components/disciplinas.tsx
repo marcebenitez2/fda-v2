@@ -1,103 +1,6 @@
-import Image from "next/image";
+import { DisciplineGrid } from "./discipline-grid";
+import { DISCIPLINES } from "./disciplines";
 import { Reveal } from "./reveal";
-
-type Discipline = {
-  name: string;
-  photo: string;
-  image?: string;
-  alt?: string;
-  imageClassName?: string;
-};
-
-const disciplines: Discipline[] = [
-  {
-    name: "Arquería",
-    photo: "Foto · Arquería",
-    image: "/club/arqueria.jpg",
-    alt: "Mujer practicando arquería al aire libre",
-    imageClassName: "photo-cover--archery",
-  },
-  {
-    name: "Entrenamiento funcional",
-    photo: "Foto · Funcional",
-    image: "/club/entrenamiento-funcional.png",
-    alt: "Elementos de entrenamiento funcional en el salón del club",
-    imageClassName: "photo-cover--functional",
-  },
-  {
-    name: "Wing Chun",
-    photo: "Foto · Wing Chun",
-    image: "/club/wing-chun-recortado.png",
-    alt: "Practicante de Wing Chun en postura de defensa",
-    imageClassName: "photo-cover--wing-chun",
-  },
-  {
-    name: "Pádel",
-    photo: "Foto · Pádel",
-    image: "/club/padel.jpg",
-    alt: "Jugador de pádel preparando el saque en la cancha del club",
-    imageClassName: "photo-cover--padel",
-  },
-  {
-    name: "Patín artístico",
-    photo: "Foto · Patín artístico",
-    image: "/club/patin-artistico.jpg",
-    alt: "Patines artísticos dispuestos en círculo",
-    imageClassName: "photo-cover--skating",
-  },
-  {
-    name: "Patín competitivo",
-    photo: "Foto · Patín competitivo",
-    image: "/club/patin-competitivo.jpg",
-    alt: "Patinadora de patín competitivo durante una presentación",
-    imageClassName: "photo-cover--skating",
-  },
-  {
-    name: "Pelota paleta",
-    photo: "Foto · Pelota paleta",
-    image: "/club/pelota-paleta.jpg",
-    alt: "Jugadores de pelota paleta posando en el frontón del club",
-    imageClassName: "photo-cover--pelota-paleta",
-  },
-  {
-    name: "Taekwondo",
-    photo: "Foto · Taekwondo",
-    image: "/club/taekwondo-recortado.png",
-    alt: "Dos competidores de taekwondo durante un combate",
-  },
-  {
-    name: "Sóftbol",
-    photo: "Foto · Sóftbol",
-    image: "/club/softbol.png",
-    alt: "Bateador de sóftbol conectando un lanzamiento durante un entrenamiento",
-  },
-  {
-    name: "Ultimate Frisbee",
-    photo: "Foto · Ultimate",
-    image: "/club/ultimate.png",
-    alt: "Jugadores de ultimate disputando el disco en una cancha de césped",
-  },
-  {
-    name: "Grupo Scout",
-    photo: "Foto · Grupo Scout",
-    image: "/club/scouts-ronda.webp",
-    alt: "Grupo Scout Domingo Matheu reunido en ronda en el predio",
-  },
-  {
-    name: "Vóley",
-    photo: "Foto · Vóley",
-    image: "/club/voley.png",
-    alt: "Jugadoras de vóley entrenando en la cancha al aire libre del club",
-    imageClassName: "photo-cover--volleyball",
-  },
-  {
-    name: "Hockey",
-    photo: "Foto · Hockey",
-    image: "/club/hockey-entrenamiento.png",
-    alt: "Jugadoras de hockey entrenando de noche en el predio",
-    imageClassName: "photo-cover--hockey",
-  },
-];
 
 export function Disciplinas() {
   return (
@@ -105,7 +8,7 @@ export function Disciplinas() {
       <div className="wrap">
         <div className="section-head">
           <Reveal>
-            <div className="eyebrow">13 disciplinas</div>
+            <div className="eyebrow">{DISCIPLINES.length} disciplinas</div>
             <h2 className="display h-lg">
               Tu próxima <em>disciplina favorita</em> te está esperando.
             </h2>
@@ -113,31 +16,12 @@ export function Disciplinas() {
           <Reveal className="right" delay=".15s">
             Desde el arco y el patín hasta el wing chun y el ultimate frisbee —
             trece disciplinas con su cancha, su gente y sus horarios. Todas con
-            el espíritu del club.
+            el espíritu del club. Tocá cualquiera para escribirle directo por
+            WhatsApp.
           </Reveal>
         </div>
 
-        <Reveal className="disc-grid">
-          {disciplines.map((d) => (
-            <div key={d.name} className="disc">
-              <div className="disc-photo">
-                {d.image && (
-                  <Image
-                    src={d.image}
-                    alt={d.alt ?? d.name}
-                    fill
-                    sizes="(max-width: 760px) 50vw, (max-width: 1100px) 33vw, 20vw"
-                    className={`photo-cover${d.imageClassName ? ` ${d.imageClassName}` : ""}`}
-                  />
-                )}
-                {!d.image && <span className="ph">{d.photo}</span>}
-              </div>
-              <div className="disc-info">
-                <div className="disc-name">{d.name}</div>
-              </div>
-            </div>
-          ))}
-        </Reveal>
+        <DisciplineGrid />
       </div>
     </section>
   );
