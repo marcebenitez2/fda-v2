@@ -1,6 +1,10 @@
 export function Recorrido() {
   return (
-    <section className="recorrido" id="recorrido" aria-labelledby="recorrido-title">
+    <section
+      className="recorrido"
+      id="recorrido"
+      aria-labelledby="recorrido-title"
+    >
       <div className="wrap recorrido-layout">
         <div className="recorrido-copy">
           <div className="eyebrow">El club en movimiento</div>
@@ -11,7 +15,9 @@ export function Recorrido() {
             Un recorrido por el predio, los deportes y la gente que le da vida
             al club. Dale play y conocelo desde adentro.
           </p>
-          <span className="recorrido-duration">00:34 · Un recorrido completo</span>
+          <span className="recorrido-duration">
+            00:34 · Un recorrido completo
+          </span>
         </div>
 
         <div className="recorrido-media">

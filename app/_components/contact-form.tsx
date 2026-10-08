@@ -19,9 +19,7 @@ export function ContactForm() {
             placeholder="Tu nombre"
             required
             style={
-              errors.nombre
-                ? { borderBottomColor: "var(--yellow)" }
-                : undefined
+              errors.nombre ? { borderBottomColor: "var(--yellow)" } : undefined
             }
           />
         </div>

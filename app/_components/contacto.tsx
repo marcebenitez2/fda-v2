@@ -30,11 +30,7 @@ export function Contacto() {
             <div className="info-block">
               <div className="label">Dirección</div>
               <div className="value">
-                <a
-                  href={CLUB_MAPS_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={CLUB_MAPS_URL} target="_blank" rel="noreferrer">
                   {CLUB_ADDRESS.street}
                   <br />
                   {CLUB_ADDRESS.city} · {CLUB_ADDRESS.region}
@@ -95,11 +91,7 @@ export function Contacto() {
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
               />
-              <a
-                href={CLUB_MAPS_URL}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href={CLUB_MAPS_URL} target="_blank" rel="noreferrer">
                 Abrir en Google Maps ↗
               </a>
             </div>

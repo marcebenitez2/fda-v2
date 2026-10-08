@@ -31,25 +31,20 @@ export function Footer() {
           <div className="foot-col">
             <h4>Contacto</h4>
             <a
-              href={whatsappUrl(CLUB_PHONE, "¡Hola! Quería hacer una consulta.")}
+              href={whatsappUrl(
+                CLUB_PHONE,
+                "¡Hola! Quería hacer una consulta.",
+              )}
               target="_blank"
               rel="noreferrer"
             >
               WhatsApp {CLUB_PHONE}
             </a>
             <a href={`mailto:${CLUB_EMAIL}`}>{CLUB_EMAIL}</a>
-            <a
-              href={CLUB_INSTAGRAM_URL}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={CLUB_INSTAGRAM_URL} target="_blank" rel="noreferrer">
               Instagram
             </a>
-            <a
-              href={CLUB_MAPS_URL}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={CLUB_MAPS_URL} target="_blank" rel="noreferrer">
               Cómo llegar
             </a>
           </div>

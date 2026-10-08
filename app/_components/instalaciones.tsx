@@ -69,9 +69,7 @@ export function Instalaciones() {
             <div className="card-body">
               <div className="num">03 · Estacionamiento</div>
               <h3>Vení tranquilo.</h3>
-              <p>
-                Estacionamiento amplio dentro del predio, sin vueltas.
-              </p>
+              <p>Estacionamiento amplio dentro del predio, sin vueltas.</p>
             </div>
           </Reveal>
 

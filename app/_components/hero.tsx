@@ -1,11 +1,11 @@
-import Image from 'next/image'
-import { Fragment } from 'react'
-import { Counter } from './counter'
-import { DISCIPLINES } from './disciplines'
-import { ParallaxStrip } from './parallax-strip'
+import Image from "next/image";
+import { Fragment } from "react";
+import { Counter } from "./counter";
+import { DISCIPLINES } from "./disciplines";
+import { ParallaxStrip } from "./parallax-strip";
 
 // The track is rendered twice so the marquee can loop seamlessly.
-const MARQUEE_PASSES = [0, 1]
+const MARQUEE_PASSES = [0, 1];
 
 export function Hero() {
   return (
@@ -18,13 +18,24 @@ export function Hero() {
 
       <div className="wrap hero-body">
         <div className="hero-grid">
-          <Image src="/escudo-limpio.svg" alt="Escudo del club" width={320} height={347} priority unoptimized className="hero-logo" />
+          <Image
+            src="/escudo-limpio.svg"
+            alt="Escudo del club"
+            width={320}
+            height={347}
+            priority
+            unoptimized
+            className="hero-logo"
+          />
 
           <div className="hero-side">
-            <h1 className="hero-title">CLUB S&amp;D F.A. <span>DOMINGO MATHEU</span></h1>
+            <h1 className="hero-title">
+              CLUB S&amp;D F.A. <span>DOMINGO MATHEU</span>
+            </h1>
             <p className="hero-lede">
-              Somos un club de familia, abierto, con muchas hectáreas de <em>árboles y deporte</em>. Trece disciplinas,
-              pileta, dos quinchos y un salón de eventos — todo a la vuelta de tu casa.
+              Somos un club de familia, abierto, con muchas hectáreas de{" "}
+              <em>árboles y deporte</em>. Trece disciplinas, pileta, dos
+              quinchos y un salón de eventos — todo a la vuelta de tu casa.
             </p>
             <div className="hero-meta">
               <div className="stat">
@@ -61,5 +72,5 @@ export function Hero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

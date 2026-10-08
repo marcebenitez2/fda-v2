@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 :root {
   --ink: #0f2a1f;
@@ -74,7 +74,7 @@ button {
   gap: 10px;
 }
 .eyebrow::before {
-  content: '';
+  content: "";
   width: 22px;
   height: 1px;
   background: currentColor;
@@ -451,8 +451,12 @@ section {
   animation: logo-enter 0.6s ease-out 0.1s both;
 }
 @keyframes logo-enter {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Side content */
@@ -549,9 +553,16 @@ section {
   }
 }
 @media (max-width: 600px) {
-  .hero-title { font-size: clamp(42px, 11vw, 56px); }
-  .hero-meta { gap: 8px; }
-  .hero-meta .stat .l { font-size: 8px; letter-spacing: 0.1em; }
+  .hero-title {
+    font-size: clamp(42px, 11vw, 56px);
+  }
+  .hero-meta {
+    gap: 8px;
+  }
+  .hero-meta .stat .l {
+    font-size: 8px;
+    letter-spacing: 0.1em;
+  }
 }
 
 /* Image strip — below the fold */
@@ -577,7 +588,12 @@ section {
 }
 .img-slot {
   background:
-    repeating-linear-gradient(45deg, rgba(20, 53, 39, 0.05) 0 12px, rgba(20, 53, 39, 0.09) 12px 24px), var(--cream-2);
+    repeating-linear-gradient(
+      45deg,
+      rgba(20, 53, 39, 0.05) 0 12px,
+      rgba(20, 53, 39, 0.09) 12px 24px
+    ),
+    var(--cream-2);
   border-radius: 18px;
   position: relative;
   overflow: hidden;
@@ -593,7 +609,7 @@ section {
   transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .img-slot::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 14px;
   left: 14px;
@@ -603,19 +619,45 @@ section {
   background: var(--green);
   opacity: 0.35;
 }
-.img-slot.has-photo::before { display: none; }
-.photo-cover { object-fit: cover; }
-.photo-cover--entrance { object-position: center 45%; }
-.photo-cover--pool { object-position: 62% center; }
-.photo-cover--archery { object-position: center 42%; }
-.photo-cover--functional { object-position: center 60%; }
-.photo-cover--wing-chun { object-position: center 35%; }
-.photo-cover--padel { object-position: 18% center; }
-.photo-cover--pelota-paleta { object-position: center 40%; }
-.photo-cover--skating { object-position: center 42%; }
-.photo-cover--hockey { object-position: center 48%; }
-.photo-cover--volleyball { object-position: center 58%; }
-.photo-cover--event-hall { object-position: center 42%; }
+.img-slot.has-photo::before {
+  display: none;
+}
+.photo-cover {
+  object-fit: cover;
+}
+.photo-cover--entrance {
+  object-position: center 45%;
+}
+.photo-cover--pool {
+  object-position: 62% center;
+}
+.photo-cover--archery {
+  object-position: center 42%;
+}
+.photo-cover--functional {
+  object-position: center 60%;
+}
+.photo-cover--wing-chun {
+  object-position: center 35%;
+}
+.photo-cover--padel {
+  object-position: 18% center;
+}
+.photo-cover--pelota-paleta {
+  object-position: center 40%;
+}
+.photo-cover--skating {
+  object-position: center 42%;
+}
+.photo-cover--hockey {
+  object-position: center 48%;
+}
+.photo-cover--volleyball {
+  object-position: center 58%;
+}
+.photo-cover--event-hall {
+  object-position: center 42%;
+}
 
 /* Marquee */
 .marquee {
@@ -781,7 +823,12 @@ section {
   border-radius: 22px;
   overflow: hidden;
   background:
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.04) 0 14px, rgba(255, 255, 255, 0.08) 14px 28px), #1d4530;
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.04) 0 14px,
+      rgba(255, 255, 255, 0.08) 14px 28px
+    ),
+    #1d4530;
 }
 .leaf {
   position: absolute;
@@ -879,7 +926,12 @@ section {
   position: relative;
   overflow: hidden;
   background:
-    repeating-linear-gradient(45deg, rgba(20, 53, 39, 0.05) 0 12px, rgba(20, 53, 39, 0.09) 12px 24px), var(--cream-2);
+    repeating-linear-gradient(
+      45deg,
+      rgba(20, 53, 39, 0.05) 0 12px,
+      rgba(20, 53, 39, 0.09) 12px 24px
+    ),
+    var(--cream-2);
   display: grid;
   place-items: center;
   color: var(--green-deep);
@@ -933,7 +985,11 @@ section {
   border-radius: 18px;
   color: var(--cream);
   background:
-    radial-gradient(120% 70% at 50% 115%, rgba(201, 226, 101, 0.32), transparent 60%),
+    radial-gradient(
+      120% 70% at 50% 115%,
+      rgba(201, 226, 101, 0.32),
+      transparent 60%
+    ),
     var(--green-deep);
   clip-path: circle(0% at 50% 100%);
   visibility: hidden;
@@ -1105,15 +1161,23 @@ section {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
   z-index: 2;
 }
-.disc-detail-photo .photo-cover { object-position: center 75%; }
+.disc-detail-photo .photo-cover {
+  object-position: center 75%;
+}
 @media (max-width: 760px) {
-  .disc--featured { grid-template-columns: 1fr; }
+  .disc--featured {
+    grid-template-columns: 1fr;
+  }
   .disc--featured .disc-photo {
     aspect-ratio: 4 / 5;
     min-height: 0;
   }
-  .disc--featured .disc-info { padding: 26px; }
-  .disc--featured .disc-name { font-size: 42px; }
+  .disc--featured .disc-info {
+    padding: 26px;
+  }
+  .disc--featured .disc-name {
+    font-size: 42px;
+  }
 }
 
 /* ───────── INSTALACIONES ───────── */
@@ -1155,7 +1219,12 @@ section {
   position: relative;
   overflow: hidden;
   background:
-    repeating-linear-gradient(45deg, rgba(20, 53, 39, 0.05) 0 12px, rgba(20, 53, 39, 0.09) 12px 24px), var(--cream-2);
+    repeating-linear-gradient(
+      45deg,
+      rgba(20, 53, 39, 0.05) 0 12px,
+      rgba(20, 53, 39, 0.09) 12px 24px
+    ),
+    var(--cream-2);
   display: grid;
   place-items: center;
 }
@@ -1248,7 +1317,12 @@ section {
 .card.salon .card-photo {
   min-height: 230px;
   background:
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.04) 0 12px, rgba(255, 255, 255, 0.08) 12px 24px), #1d4530;
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.04) 0 12px,
+      rgba(255, 255, 255, 0.08) 12px 24px
+    ),
+    #1d4530;
 }
 .card.salon .card-body {
   padding-top: 18px;
@@ -1335,7 +1409,12 @@ section {
   bottom: 0;
   right: 0;
   background:
-    repeating-linear-gradient(-45deg, rgba(20, 53, 39, 0.05) 0 12px, rgba(20, 53, 39, 0.09) 12px 24px), var(--cream-2);
+    repeating-linear-gradient(
+      -45deg,
+      rgba(20, 53, 39, 0.05) 0 12px,
+      rgba(20, 53, 39, 0.09) 12px 24px
+    ),
+    var(--cream-2);
 }
 .comu-list {
   margin-top: 36px;
@@ -1381,7 +1460,7 @@ section {
   overflow: hidden;
 }
 .contacto::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -200px;
   right: -200px;
@@ -1393,7 +1472,7 @@ section {
   opacity: 0.45;
 }
 .contacto::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -200px;
   left: -200px;
@@ -1658,8 +1737,16 @@ form {
   flex-direction: column;
   color: var(--cream);
   background:
-    radial-gradient(60% 50% at 85% 20%, rgba(201, 226, 101, 0.18), transparent 70%),
-    radial-gradient(50% 45% at 10% 90%, rgba(242, 198, 52, 0.14), transparent 70%),
+    radial-gradient(
+      60% 50% at 85% 20%,
+      rgba(201, 226, 101, 0.18),
+      transparent 70%
+    ),
+    radial-gradient(
+      50% 45% at 10% 90%,
+      rgba(242, 198, 52, 0.14),
+      transparent 70%
+    ),
     var(--green-deep);
 }
 .status-top {

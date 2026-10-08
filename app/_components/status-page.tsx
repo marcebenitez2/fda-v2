@@ -12,7 +12,13 @@ interface StatusPageProps {
 }
 
 // Full-screen green layout shared by standalone pages (novedades, 404, error).
-export function StatusPage({ badge, title, lede, actions, aside }: StatusPageProps) {
+export function StatusPage({
+  badge,
+  title,
+  lede,
+  actions,
+  aside,
+}: StatusPageProps) {
   return (
     <main className="status">
       <header className="wrap status-top">

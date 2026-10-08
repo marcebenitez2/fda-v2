@@ -2,7 +2,8 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const alt = "Club Domingo Matheu — Más de 80 años en Zona Sur de Rosario";
+export const alt =
+  "Club Domingo Matheu — Más de 80 años en Zona Sur de Rosario";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -31,10 +32,19 @@ export default async function OpenGraphImage(): Promise<ImageResponse> {
         <div style={{ color: "#e3ac35", fontSize: 28, letterSpacing: 4 }}>
           ROSARIO · ZONA SUR
         </div>
-        <div style={{ fontSize: 76, fontWeight: 800, lineHeight: 1.05, marginTop: 24 }}>
+        <div
+          style={{
+            fontSize: 76,
+            fontWeight: 800,
+            lineHeight: 1.05,
+            marginTop: 24,
+          }}
+        >
           Club Domingo Matheu
         </div>
-        <div style={{ fontSize: 34, lineHeight: 1.3, marginTop: 28, opacity: 0.9 }}>
+        <div
+          style={{ fontSize: 34, lineHeight: 1.3, marginTop: 28, opacity: 0.9 }}
+        >
           Más de 80 años de deporte, familia y comunidad.
         </div>
       </div>
