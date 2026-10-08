@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { CLUB_NAME_MAIN, CLUB_NAME_PREFIX } from "../app/_components/club-info";
 import { scrollTo } from "./helpers";
 
 test.describe("mobile menu", () => {
@@ -69,5 +70,28 @@ test.describe("logo flight", () => {
     await scrollTo(page, 0);
     await expect(html).not.toHaveAttribute("data-logo-docked");
     await expect(page.locator(".hero-logo")).toBeVisible();
+  });
+
+  test("the club name appears next to the docked shield", async ({ page }) => {
+    await page.goto("/");
+    const name = page.locator(".nav-brand-name");
+
+    await expect(name).toBeHidden();
+    await scrollTo(page, 600);
+    await expect(name).toBeVisible();
+    await expect(name).toContainText(CLUB_NAME_PREFIX);
+    await expect(name).toContainText(CLUB_NAME_MAIN);
+
+    // The name must never overlap the menu links or the toggle.
+    const brand = await name.boundingBox();
+    const next = await page
+      .locator(".nav-links, .nav-toggle")
+      .filter({ visible: true })
+      .first()
+      .boundingBox();
+    expect((brand?.x ?? 0) + (brand?.width ?? 0)).toBeLessThan(next?.x ?? 0);
+
+    await scrollTo(page, 0);
+    await expect(name).toBeHidden();
   });
 });

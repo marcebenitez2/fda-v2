@@ -4,13 +4,14 @@ import { RefObject, useEffect } from "react";
 
 const FOCUSABLE = "a[href], button:not([disabled])";
 
-// While active, keeps keyboard focus inside the container: focus moves to its
-// first link, Tab and Shift+Tab wrap around, and focus returns to
-// `returnFocusRef` once the trap is released.
+// While active, keeps keyboard focus inside the container: focus moves to the
+// first element matching `initialFocus`, Tab and Shift+Tab wrap around, and
+// focus returns to `returnFocusRef` once the trap is released.
 export function useFocusTrap(
   containerRef: RefObject<HTMLElement | null>,
   returnFocusRef: RefObject<HTMLElement | null>,
   active: boolean,
+  initialFocus = "a[href]",
 ): void {
   useEffect(() => {
     const container = containerRef.current;
@@ -20,7 +21,7 @@ export function useFocusTrap(
     const focusables = (): HTMLElement[] => [
       ...container.querySelectorAll<HTMLElement>(FOCUSABLE),
     ];
-    container.querySelector<HTMLElement>("a[href]")?.focus();
+    container.querySelector<HTMLElement>(initialFocus)?.focus();
 
     const onKeyDown = (event: KeyboardEvent): void => {
       if (event.key !== "Tab") return;
@@ -43,5 +44,5 @@ export function useFocusTrap(
         returnTarget?.focus();
       }
     };
-  }, [containerRef, returnFocusRef, active]);
+  }, [containerRef, returnFocusRef, active, initialFocus]);
 }

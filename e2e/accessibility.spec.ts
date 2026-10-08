@@ -48,11 +48,13 @@ test.describe("keyboard navigation", () => {
       await page.keyboard.press("Enter");
       await expect(links.first()).toBeFocused();
 
-      // Shift+Tab from the first link wraps to the last focusable item.
+      // Shift+Tab goes back to the club name, then wraps to the last item.
+      await page.keyboard.press("Shift+Tab");
+      await expect(page.locator(".nav-brand-name")).toBeFocused();
       await page.keyboard.press("Shift+Tab");
       await expect(toggle).toBeFocused();
       await page.keyboard.press("Tab");
-      await expect(links.first()).toBeFocused();
+      await expect(page.locator(".nav-brand-name")).toBeFocused();
 
       await page.keyboard.press("Escape");
       await expect(page.locator(".nav")).not.toHaveClass(/is-open/);

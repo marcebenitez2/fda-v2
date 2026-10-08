@@ -26,6 +26,97 @@
   height: 44px;
   flex: none;
 }
+
+/* Club name: emerges from behind the shield once it lands in the nav. */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.nav-brand-name {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  margin-left: 12px;
+  padding-left: 12px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  visibility: hidden;
+  transition: visibility 0s linear 0.3s;
+}
+/* Gold hairline that echoes the shield's border. */
+.nav-brand-name::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  bottom: 2px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--yellow-deep);
+  transform: scaleY(0);
+  transition: transform 0.25s ease;
+}
+.nav-brand-line {
+  display: block;
+  overflow: hidden;
+}
+.nav-brand-prefix,
+.nav-brand-main {
+  display: block;
+  transform: translateX(-24px);
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease,
+    clip-path 0.25s ease;
+}
+.nav-brand-prefix {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--green);
+}
+.nav-brand-main {
+  font-family: var(--f-display);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+[data-logo-docked] .nav-brand-name {
+  visibility: visible;
+  transition-delay: 0s;
+}
+[data-logo-docked] .nav-brand-name::before {
+  transform: scaleY(1);
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) 0.32s;
+}
+[data-logo-docked] .nav-brand-prefix,
+[data-logo-docked] .nav-brand-main {
+  transform: none;
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  transition:
+    transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s,
+    opacity 0.3s ease 0.4s,
+    clip-path 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s;
+}
+[data-logo-docked] .nav-brand-main {
+  transition-delay: 0.48s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-brand-name,
+  .nav-brand-name::before,
+  .nav-brand-prefix,
+  .nav-brand-main {
+    transition: none !important;
+  }
+}
 .logo-fly {
   position: fixed;
   top: 0;
@@ -106,6 +197,33 @@
 }
 .nav-toggle {
   display: none;
+}
+/* Between the mobile menu and wide screens, tighten the bar so the club
+   name and the links fit side by side. */
+@media (min-width: 881px) and (max-width: 1080px) {
+  .nav {
+    padding-inline: 24px;
+  }
+  .nav-links {
+    gap: 0;
+  }
+  .nav-links a {
+    padding-inline: 9px;
+  }
+  .nav-links .nav-cta {
+    margin-left: 6px;
+    padding-inline: 14px;
+  }
+  .nav-brand-name {
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+  .nav-brand-prefix {
+    font-size: 9px;
+  }
+  .nav-brand-main {
+    font-size: 15px;
+  }
 }
 @media (max-width: 880px) {
   :root {

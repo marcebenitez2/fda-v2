@@ -10,7 +10,7 @@ test.describe("pages", () => {
     expect(response?.status()).toBe(200);
     await expect(page).toHaveTitle(/Club Domingo Matheu/);
     await expect(page.locator("h1")).toContainText("DOMINGO MATHEU");
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("load");
     expect(problems).toEqual([]);
   });
 
@@ -20,7 +20,7 @@ test.describe("pages", () => {
 
     expect(response?.status()).toBe(200);
     await expect(page.locator("h1")).toContainText("muy pronto acá");
-    await page.waitForLoadState("networkidle");
+    await page.waitForLoadState("load");
     expect(problems).toEqual([]);
   });
 

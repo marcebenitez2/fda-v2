@@ -1,7 +1,9 @@
 // Single source of truth for the club's contact details, used by the
 // sections, the footer and the structured data for search engines.
 
-export const CLUB_NAME = "Club S&D F.A. Domingo Matheu";
+export const CLUB_NAME_PREFIX = "Club S&D F.A.";
+export const CLUB_NAME_MAIN = "Domingo Matheu";
+export const CLUB_NAME = `${CLUB_NAME_PREFIX} ${CLUB_NAME_MAIN}`;
 export const CLUB_SHORT_NAME = "Club Domingo Matheu";
 
 export const CLUB_EMAIL = "clubfabricadearmas@gmail.com";
