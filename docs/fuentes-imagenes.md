@@ -20,14 +20,14 @@ Las fotos de actividades y del festejo muestran momentos concretos, y la foto de
 | Archivo | Contenido y uso |
 | --- | --- |
 | `arqueria.jpg` | Práctica de arquería; tarjeta Arquería |
-| `entrenamiento-funcional.png` | Elementos de entrenamiento en el salón; tarjeta Entrenamiento funcional |
-| `wing-chun-recortado.png` | Practicante de Wing Chun; tarjeta Wing Chun. Se recortó una de las dos figuras repetidas de la imagen original. |
-| `ultimate.png` | Partido de ultimate; tarjeta Ultimate Frisbee |
-| `taekwondo-recortado.png` | Combate de taekwondo; tarjeta Taekwondo. Se recortó la franja inferior con marca de agua y crédito. |
+| `entrenamiento-funcional.jpg` | Elementos de entrenamiento en el salón; tarjeta Entrenamiento funcional |
+| `wing-chun-recortado.jpg` | Practicante de Wing Chun; tarjeta Wing Chun. Se recortó una de las dos figuras repetidas de la imagen original. |
+| `ultimate.jpg` | Partido de ultimate; tarjeta Ultimate Frisbee |
+| `taekwondo-recortado.jpg` | Combate de taekwondo; tarjeta Taekwondo. Se recortó la franja inferior con marca de agua y crédito. |
 | `patin-artistico.jpg` | Foto de patines artísticos aportada por el usuario; tarjeta Patín artístico. |
 | `patin-competitivo.jpg` | Foto aportada por el usuario para Patín competitivo; se recortó la franja inferior con texto y marca de agua y se optimizó para la web. |
 | `patin-recortado.png` | Recorte anterior de la misma presentación, conservado como archivo histórico. |
-| `hockey-entrenamiento.png` | Entrenamiento nocturno; tarjeta destacada de Hockey |
+| `hockey-entrenamiento.jpg` | Entrenamiento nocturno; tarjeta destacada de Hockey |
 | `hockey-equipo.png` | Palos, bochas y conos; detalle de la tarjeta de Hockey |
 
 Las imágenes de taekwondo y patín muestran competiciones; sus textos alternativos no las describen como escenas del predio.
