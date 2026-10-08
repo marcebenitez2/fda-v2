@@ -2,24 +2,15 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { useReveal } from "./use-reveal";
 
 export function ParallaxStrip() {
   const ref = useRef<HTMLDivElement>(null);
+  useReveal(ref);
 
   useEffect(() => {
     const container = ref.current;
     if (!container) return;
-
-    const revealIo = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          container.classList.add("is-in");
-          revealIo.unobserve(container);
-        }
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
-    );
-    revealIo.observe(container);
 
     let ticking = false;
     const applyParallax = () => {
@@ -45,7 +36,6 @@ export function ParallaxStrip() {
     applyParallax();
 
     return () => {
-      revealIo.disconnect();
       window.removeEventListener("scroll", onScroll);
     };
   }, []);

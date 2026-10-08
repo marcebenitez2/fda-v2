@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
+import { useReveal } from "./use-reveal";
 
 interface RevealProps {
   children: ReactNode;
@@ -11,23 +12,7 @@ interface RevealProps {
 export function Reveal({ children, delay, className }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add("is-in");
-          io.unobserve(el);
-        }
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
-    );
-
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+  useReveal(ref);
 
   return (
     <div
