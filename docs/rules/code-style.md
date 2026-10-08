@@ -2,19 +2,20 @@
 
 ## Naming conventions
 
-- Files and folders: `kebab-case` (e.g. `policy-card.tsx`, `use-policy-list.ts`)
-- React components: `PascalCase` (e.g. `PolicyCard`, `ClientForm`)
-- Functions, variables, hooks: `camelCase` (e.g. `fetchPolicies`, `isLoading`, `useClientData`)
-- Constants: `UPPER_SNAKE_CASE` (e.g. `MAX_RETRY_COUNT`)
+- Files and folders: `kebab-case` (e.g. `discipline-card.tsx`, `use-open-item.ts`)
+- React components: `PascalCase` (e.g. `DisciplineCard`, `ContactForm`)
+- Functions, variables, hooks: `camelCase` (e.g. `whatsappUrl`, `isOpen`, `useContactForm`)
+- Constants: `UPPER_SNAKE_CASE` (e.g. `CLUB_PHONE`, `FLIGHT_MS`)
 - Types and interfaces: `PascalCase`, prefix interfaces with `I` only if it adds clarity
-- Everything (names, comments, variables) must be written in English
+- Code (names, comments, variables) is written in English; user-facing copy is in Spanish (Rioplatense, using "vos")
+- Formatting is handled by Prettier (`npm run format`) — do not hand-format
 
 ## TypeScript
 
 - Strict mode always on
 - Never use `any` — use `unknown` and narrow, or define the proper type
 - Always type function parameters and return values explicitly
-- Type API requests and responses in `src/types/`
+- Type API requests and responses in `app/_types/`
 
 ## Logic
 

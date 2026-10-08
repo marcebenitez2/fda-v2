@@ -7,21 +7,37 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run dev      # Start dev server (Turbopack, outputs to .next/dev)
-npm run build    # Production build (Turbopack by default)
-npm run start    # Start production server
-npm run lint     # Run ESLint (eslint directly — not next lint, which was removed in v16)
+npm run dev           # Start dev server (Turbopack, outputs to .next/dev)
+npm run build         # Production build (Turbopack by default)
+npm run start         # Start production server
+npm run lint          # Run ESLint (eslint directly — not next lint, which was removed in v16)
+npm run format        # Format everything with Prettier
+npm run format:check  # Check formatting without writing
 ```
 
 No test runner is configured yet.
 
+**Dependencies:** both `pnpm-lock.yaml` and `package-lock.json` are committed. When adding a dependency, update both (`pnpm add <pkg>` and then `npm install --package-lock-only`) so the deploy installs the same versions whichever package manager runs.
+
 ## Architecture
 
-Next.js **16.2.6** App Router project with React 19.2, TypeScript (strict), and Tailwind CSS v4.
+Marketing site for Club S&D F.A. Domingo Matheu. Next.js **16.2.6** App Router, React 19.2, TypeScript (strict). Mostly static: the home page is a single route built from section components.
 
-- `app/` — App Router: `layout.tsx` is the root layout, `page.tsx` is the home route. New routes are added as `app/<segment>/page.tsx`.
-- `public/` — Static assets, referenced from `/`.
+- `app/page.tsx` — home page: renders the sections in order plus the JSON-LD structured data.
+- `app/novedades/`, `app/not-found.tsx`, `app/error.tsx` — standalone pages built on the shared `StatusPage` layout.
+- `app/_components/` — section components (`hero.tsx`, `disciplinas.tsx`, …), small shared components, hooks (`use-*.ts`) and static data:
+  - `club-info.ts` — contact details, address, hours, social links. Single source of truth: never hard-code these anywhere else.
+  - `disciplines.ts`, `facilities.ts` — the lists that drive the disciplines grid, the hero marquee and counters, and the facilities cards.
+- `app/_services/` — calls to external services (e.g. `contact.service.ts`, which posts the contact form to FormSubmit).
+- `app/_types/` — request/response types for those services.
+- `app/_lib/` — non-UI helpers (e.g. `site-url.ts`).
+- `app/styles/` — one plain-CSS file per section, imported in order from `app/globals.css`.
+- `public/` — static assets, referenced from `/`. Photos live in `public/club/`; their sources are documented in `docs/fuentes-imagenes.md`.
 - `@/*` path alias maps to the repo root (configured in `tsconfig.json`).
+
+**Styling:** plain CSS with design tokens as CSS variables in `app/styles/base.css`. Tailwind v4 is installed only for its base reset (preflight); its utility classes are not used. Do not remove the `@import "tailwindcss"` line without checking every page, since the reset affects margins and typography across the site.
+
+**Nav logo animation:** `app/_components/logo-flight.ts` runs as an inline script (`LogoFlightScript`) right after the hero, before React hydrates, so it works on slow connections. It must stay self-contained (it is serialized with `toString()`).
 
 ## Next.js 16 Breaking Changes
 

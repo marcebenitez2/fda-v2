@@ -6,25 +6,19 @@
 - Separate logic from rendering: extract business logic into custom hooks
 - No business logic inside a component's JSX — the component should only render
 
-## shadcn/ui
+## Where things live
 
-- Use shadcn/ui components as the UI base whenever a suitable component exists
-- Do not rebuild from scratch what shadcn already provides (Button, Input, Dialog, etc.)
-- Customize via Tailwind classes or CSS variables, never by modifying shadcn source files directly
+- Section components and shared components: `app/_components/`
+- Static content that drives the UI (lists, contact details) lives in data files next to them (`club-info.ts`, `disciplines.ts`, `facilities.ts`), not hard-coded in JSX
+- If the same markup repeats for several items, render it from a data list
 
-## Reusability
+## Styling
 
-- If a component is used in more than one place, it lives in `src/components/ui/`
-- If a component is specific to a business domain, it lives in `src/features/<domain>/components/`
-
-## components/ui vs components/features
-
-- `src/components/ui/`: generic, reusable, domain-agnostic (e.g. `DataTable`, `PageHeader`, `EmptyState`)
-- `src/features/`: specific to the business (e.g. `PolicyStatusBadge`, `ClientSummaryCard`)
-- Never import from `features/` inside `components/ui/` — the dependency goes one way only
+- Plain CSS in `app/styles/<section>.css`, using the tokens defined in `base.css`
+- No inline `style` objects except for passing CSS custom properties (e.g. `--d` for reveal delays)
+- Tailwind utility classes are not used in this project
 
 ## Hooks
 
-- Custom hooks live in `src/hooks/` (shared) or `src/features/<domain>/hooks/` (domain-specific)
-- A hook that is only used by one component can live next to that component, but must be in its own file
+- Hooks live in their own file (`use-*.ts`) in `app/_components/`
 - Never define a hook inside a component file
