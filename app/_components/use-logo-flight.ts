@@ -2,7 +2,8 @@
 
 import { RefObject, useEffect } from "react";
 
-const FLIGHT_MS = 650;
+const FLIGHT_MS = 480;
+const DOCK_SCROLL_Y = 30;
 const FLIGHT_TILT_DEG = -14;
 const FLIGHT_EASING = "cubic-bezier(0.65, 0, 0.35, 1)";
 
@@ -28,20 +29,25 @@ const placementOver = (rect: DOMRect, source: DOMRect): Placement => ({
   scale: rect.width / source.width,
 });
 
-// Flies the flyer between the source element and the fixed slot
-// whenever `docked` changes. Runs as a Web Animation so it stays smooth
-// on iOS, where scroll-linked JavaScript lags behind native scrolling.
+// Flies the flyer between the source element and the fixed slot once the
+// page scrolls past DOCK_SCROLL_Y (or while `forceDocked` is set). The flight
+// starts straight from the scroll event and runs as a Web Animation, so it
+// stays smooth and immediate on iOS, where React re-renders and
+// scroll-linked JavaScript lag behind native scrolling.
 export function useLogoFlight(
   flyerRef: RefObject<HTMLElement | null>,
   slotRef: RefObject<HTMLElement | null>,
   sourceSelector: string,
-  docked: boolean,
+  forceDocked: boolean,
 ): void {
   useEffect(() => {
     const flyer = flyerRef.current;
     const slot = slotRef.current;
     const source = document.querySelector<HTMLElement>(sourceSelector);
     if (!flyer || !slot || !source) return;
+
+    const shouldDock = (): boolean =>
+      forceDocked || window.scrollY > DOCK_SCROLL_Y;
 
     const setActive = (active: boolean): void => {
       flyer.classList.toggle("is-active", active);
@@ -57,58 +63,69 @@ export function useLogoFlight(
       };
     };
 
+    const fly = (docked: boolean): void => {
+      const { atSource, atSlot } = measure();
+      const [from, to] = docked ? [atSource, atSlot] : [atSlot, atSource];
+      const running = flyer.getAnimations();
+      const keyframes =
+        running.length > 0
+          ? [
+              { transform: getComputedStyle(flyer).transform },
+              { transform: toTransform(to) },
+            ]
+          : [
+              { transform: toTransform(from) },
+              { transform: toTransform(midpoint(from, to), FLIGHT_TILT_DEG) },
+              { transform: toTransform(to) },
+            ];
+      running.forEach((animation) => animation.cancel());
+
+      setActive(true);
+      flyer.style.transform = toTransform(to);
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      const flight = flyer.animate(keyframes, {
+        duration: reducedMotion ? 0 : FLIGHT_MS,
+        easing: FLIGHT_EASING,
+      });
+
+      if (!docked) {
+        flight.finished.then(
+          () => setActive(false),
+          () => undefined,
+        );
+      }
+    };
+
+    const sync = (): void => {
+      const docked = shouldDock();
+      if (docked === flyer.classList.contains("is-docked")) return;
+      flyer.classList.toggle("is-docked", docked);
+      fly(docked);
+    };
+
     const onResize = (): void => {
-      if (docked && flyer.getAnimations().length === 0) {
+      if (shouldDock() && flyer.getAnimations().length === 0) {
         flyer.style.transform = toTransform(measure().atSlot);
       }
     };
-    window.addEventListener("resize", onResize);
-    const cleanup = (): void => window.removeEventListener("resize", onResize);
 
-    flyer.classList.toggle("is-docked", docked);
-    const isFirstRun = !flyer.classList.contains("is-ready");
-    flyer.classList.add("is-ready");
-    const isActive = flyer.classList.contains("is-active");
-
-    if (isFirstRun || (!docked && !isActive)) {
+    if (flyer.classList.contains("is-ready")) {
+      sync();
+    } else {
+      const docked = shouldDock();
+      flyer.classList.add("is-ready");
+      flyer.classList.toggle("is-docked", docked);
       if (docked) flyer.style.transform = toTransform(measure().atSlot);
       setActive(docked);
-      return cleanup;
     }
 
-    const { atSource, atSlot } = measure();
-    const [from, to] = docked ? [atSource, atSlot] : [atSlot, atSource];
-    const running = flyer.getAnimations();
-    const keyframes =
-      running.length > 0
-        ? [
-            { transform: getComputedStyle(flyer).transform },
-            { transform: toTransform(to) },
-          ]
-        : [
-            { transform: toTransform(from) },
-            { transform: toTransform(midpoint(from, to), FLIGHT_TILT_DEG) },
-            { transform: toTransform(to) },
-          ];
-    running.forEach((animation) => animation.cancel());
-
-    setActive(true);
-    flyer.style.transform = toTransform(to);
-    const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    const flight = flyer.animate(keyframes, {
-      duration: reducedMotion ? 0 : FLIGHT_MS,
-      easing: FLIGHT_EASING,
-    });
-
-    if (!docked) {
-      flight.finished.then(
-        () => setActive(false),
-        () => undefined,
-      );
-    }
-
-    return cleanup;
-  }, [flyerRef, slotRef, sourceSelector, docked]);
+    window.addEventListener("scroll", sync, { passive: true });
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("scroll", sync);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [flyerRef, slotRef, sourceSelector, forceDocked]);
 }

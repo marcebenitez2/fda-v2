@@ -19,7 +19,7 @@ export function Nav() {
   const menu = useMenu();
   const flyerRef = useRef<HTMLAnchorElement>(null);
   const slotRef = useRef<HTMLSpanElement>(null);
-  useLogoFlight(flyerRef, slotRef, ".hero-logo", scrolled || menu.isOpen);
+  useLogoFlight(flyerRef, slotRef, ".hero-logo", menu.isOpen);
 
   return (
     <>
