@@ -1648,8 +1648,8 @@ form {
   cursor: progress;
 }
 
-/* ───────── NOVEDADES ───────── */
-.news {
+/* ───────── STATUS PAGES (novedades, 404, error) ───────── */
+.status {
   position: relative;
   min-height: 100vh;
   min-height: 100dvh;
@@ -1662,14 +1662,14 @@ form {
     radial-gradient(50% 45% at 10% 90%, rgba(242, 198, 52, 0.14), transparent 70%),
     var(--green-deep);
 }
-.news-top {
+.status-top {
   position: relative;
   z-index: 2;
   display: flex;
   align-items: center;
   padding-block: 22px;
 }
-.news-home {
+.status-home {
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -1678,7 +1678,7 @@ form {
   font-weight: 600;
   letter-spacing: -0.02em;
 }
-.news-body {
+.status-body {
   position: relative;
   z-index: 1;
   flex: 1;
@@ -1688,7 +1688,7 @@ form {
   align-items: center;
   padding-block: 32px 72px;
 }
-.news-badge {
+.status-badge {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -1701,35 +1701,35 @@ form {
   text-transform: uppercase;
   color: var(--lime);
 }
-.news-badge .dot {
+.status-badge .dot {
   width: 7px;
   height: 7px;
   border-radius: 999px;
   background: var(--lime);
   animation: pulse 1.8s ease-in-out infinite;
 }
-.news-title {
+.status-title {
   margin-top: 24px;
   font-size: clamp(44px, 6.4vw, 96px);
 }
-.news-title em {
+.status-title em {
   color: var(--lime);
 }
-.news-lede {
+.status-lede {
   margin: 24px 0 0;
   max-width: 46ch;
   font-size: 18px;
   line-height: 1.6;
   color: rgba(251, 244, 220, 0.78);
 }
-.news-actions {
+.status-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 36px;
 }
-.news-cta,
-.news-ghost {
+.status-cta,
+.status-ghost {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1742,19 +1742,22 @@ form {
     transform 0.25s,
     background 0.25s;
 }
-.news-cta {
+.status-cta {
   background: var(--yellow);
   color: var(--green-deep);
 }
-.news-cta:hover {
+.status-cta:hover {
   background: var(--lime);
   transform: translateY(-2px);
 }
-.news-ghost {
+.status-ghost {
   border: 1px solid rgba(251, 244, 220, 0.3);
 }
-.news-ghost:hover {
+.status-ghost:hover {
   background: rgba(251, 244, 220, 0.08);
+}
+button.status-cta {
+  margin: 0;
 }
 .news-feed {
   position: relative;
@@ -1864,7 +1867,7 @@ form {
   }
 }
 @media (max-width: 900px) {
-  .news-body {
+  .status-body {
     grid-template-columns: 1fr;
     padding-block: 16px 64px;
   }
@@ -1875,11 +1878,11 @@ form {
   }
 }
 @media (max-width: 540px) {
-  .news-lede {
+  .status-lede {
     font-size: 16px;
   }
-  .news-cta,
-  .news-ghost {
+  .status-cta,
+  .status-ghost {
     flex: 1 1 auto;
   }
   .news-feed {
@@ -1896,7 +1899,7 @@ form {
   .news-post-media,
   .news-line,
   .news-tape-track,
-  .news-badge .dot {
+  .status-badge .dot {
     animation: none;
   }
 }

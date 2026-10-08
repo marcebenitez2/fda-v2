@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useId, type MouseEvent } from "react";
 import { ChatIcon } from "./chat-icon";
-import { CLUB_PHONE, type Discipline } from "./disciplines";
+import { CLUB_PHONE } from "./club-info";
+import type { Discipline } from "./disciplines";
 import { whatsappUrl } from "./whatsapp";
 
 interface DisciplineCardProps {
@@ -42,16 +43,13 @@ export function DisciplineCard({
         onClick={onToggle}
       >
         <span className="disc-photo">
-          {discipline.image && (
-            <Image
-              src={discipline.image}
-              alt={discipline.alt ?? discipline.name}
-              fill
-              sizes="(max-width: 760px) 50vw, (max-width: 1100px) 33vw, 20vw"
-              className={imageClassName}
-            />
-          )}
-          {!discipline.image && <span className="ph">{discipline.photo}</span>}
+          <Image
+            src={discipline.image}
+            alt={discipline.alt ?? discipline.name}
+            fill
+            sizes="(max-width: 760px) 50vw, (max-width: 1100px) 33vw, 20vw"
+            className={imageClassName}
+          />
           <span className="disc-hint">
             <ChatIcon />
           </span>

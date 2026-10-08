@@ -1,6 +1,6 @@
 "use client";
 
-import { CLUB_PHONE } from "./disciplines";
+import { CLUB_PHONE } from "./club-info";
 import { INTEREST_OPTIONS, useContactForm } from "./use-contact-form";
 import { whatsappUrl } from "./whatsapp";
 

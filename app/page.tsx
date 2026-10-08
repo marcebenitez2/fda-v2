@@ -8,55 +8,46 @@ import { Instalaciones } from "./_components/instalaciones";
 import { Comunidad } from "./_components/comunidad";
 import { Contacto } from "./_components/contacto";
 import { Footer } from "./_components/footer";
+import {
+  CLUB_ADDRESS,
+  CLUB_EMAIL,
+  CLUB_GEO,
+  CLUB_HOURS,
+  CLUB_INSTAGRAM_URL,
+  CLUB_MAPS_URL,
+  CLUB_NAME,
+  CLUB_PHONE,
+  CLUB_SHORT_NAME,
+} from "./_components/club-info";
+
+const clubStructuredData = {
+  "@context": "https://schema.org",
+  "@type": ["SportsActivityLocation", "LocalBusiness"],
+  name: CLUB_NAME,
+  alternateName: CLUB_SHORT_NAME,
+  description:
+    "Club familiar de Zona Sur de Rosario con más de 80 años de historia, deportes, pileta, salón de eventos y un amplio predio arbolado.",
+  email: CLUB_EMAIL,
+  telephone: `+54 9 ${CLUB_PHONE}`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: CLUB_ADDRESS.street,
+    addressLocality: CLUB_ADDRESS.city,
+    addressRegion: CLUB_ADDRESS.region,
+    addressCountry: CLUB_ADDRESS.country,
+  },
+  geo: { "@type": "GeoCoordinates", ...CLUB_GEO },
+  openingHoursSpecification: CLUB_HOURS.map((hours) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: hours.days,
+    opens: hours.opens,
+    closes: hours.closes,
+  })),
+  hasMap: CLUB_MAPS_URL,
+  sameAs: [CLUB_INSTAGRAM_URL],
+};
 
 export default function Page() {
-  const clubStructuredData = {
-    "@context": "https://schema.org",
-    "@type": ["SportsActivityLocation", "LocalBusiness"],
-    name: "Club S&D F.A. Domingo Matheu",
-    alternateName: "Club Domingo Matheu",
-    description:
-      "Club familiar de Zona Sur de Rosario con más de 80 años de historia, deportes, pileta, salón de eventos y un amplio predio arbolado.",
-    email: "clubfabricadearmas@gmail.com",
-    telephone: "+54 9 3413 56-0193",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Calle 1209 3350",
-      addressLocality: "Rosario",
-      addressRegion: "Santa Fe",
-      addressCountry: "AR",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: -32.996548,
-      longitude: -60.6814769,
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "14:00",
-        closes: "22:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Saturday",
-        opens: "09:00",
-        closes: "24:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Sunday",
-        opens: "09:00",
-        closes: "22:00",
-      },
-    ],
-    hasMap: "https://maps.app.goo.gl/xJNqLx5BMPVVyET7A",
-    sameAs: [
-      "https://www.instagram.com/clubdomingomatheurosario?stkn=MWp2dGdxdm51dDYydg==",
-    ],
-  };
-
   return (
     <>
       <script

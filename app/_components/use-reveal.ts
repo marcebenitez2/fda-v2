@@ -1,11 +1,7 @@
 "use client";
 
 import { RefObject, useEffect } from "react";
-
-const isInViewport = (el: HTMLElement): boolean => {
-  const rect = el.getBoundingClientRect();
-  return rect.top < window.innerHeight && rect.bottom > 0;
-};
+import { isInViewport } from "./in-viewport";
 
 // Content is visible by default so it never waits on JavaScript.
 // Only elements still below the fold get hidden and revealed on scroll.

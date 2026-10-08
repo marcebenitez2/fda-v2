@@ -1,14 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000");
+import { SITE_URL } from "./_lib/site-url";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-display",
@@ -27,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: "Club Domingo Matheu | Deportes y comunidad en Rosario",
   description:
     "Club familiar en Zona Sur de Rosario con más de 80 años de historia, 13 disciplinas, pileta, salón de eventos y un amplio predio arbolado.",

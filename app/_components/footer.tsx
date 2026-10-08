@@ -1,4 +1,9 @@
-import { CLUB_PHONE } from "./disciplines";
+import {
+  CLUB_EMAIL,
+  CLUB_INSTAGRAM_URL,
+  CLUB_MAPS_URL,
+  CLUB_PHONE,
+} from "./club-info";
 import { whatsappUrl } from "./whatsapp";
 
 const DEVELOPER_PHONE = "341 569 0470";
@@ -32,18 +37,16 @@ export function Footer() {
             >
               WhatsApp {CLUB_PHONE}
             </a>
-            <a href="mailto:clubfabricadearmas@gmail.com">
-              clubfabricadearmas@gmail.com
-            </a>
+            <a href={`mailto:${CLUB_EMAIL}`}>{CLUB_EMAIL}</a>
             <a
-              href="https://www.instagram.com/clubdomingomatheurosario?stkn=MWp2dGdxdm51dDYydg=="
+              href={CLUB_INSTAGRAM_URL}
               target="_blank"
               rel="noreferrer"
             >
               Instagram
             </a>
             <a
-              href="https://maps.app.goo.gl/xJNqLx5BMPVVyET7A"
+              href={CLUB_MAPS_URL}
               target="_blank"
               rel="noreferrer"
             >

@@ -1,6 +1,17 @@
 import { Reveal } from "./reveal";
 import { ContactForm } from "./contact-form";
-import { CLUB_PHONE } from "./disciplines";
+import {
+  CLUB_ADDRESS,
+  CLUB_EMAIL,
+  CLUB_HOURS,
+  CLUB_INSTAGRAM_HANDLE,
+  CLUB_INSTAGRAM_URL,
+  CLUB_MAP_EMBED_URL,
+  CLUB_MAPS_URL,
+  CLUB_NAME,
+  CLUB_PHONE,
+} from "./club-info";
+import { InstagramIcon } from "./instagram-icon";
 import { whatsappUrl } from "./whatsapp";
 
 export function Contacto() {
@@ -20,13 +31,13 @@ export function Contacto() {
               <div className="label">Dirección</div>
               <div className="value">
                 <a
-                  href="https://maps.app.goo.gl/xJNqLx5BMPVVyET7A"
+                  href={CLUB_MAPS_URL}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Calle 1209 n° 3350
+                  {CLUB_ADDRESS.street}
                   <br />
-                  Rosario · Santa Fe
+                  {CLUB_ADDRESS.city} · {CLUB_ADDRESS.region}
                 </a>
               </div>
             </div>
@@ -49,19 +60,17 @@ export function Contacto() {
             <div className="info-block">
               <div className="label">Horarios del club</div>
               <div className="value">
-                Lunes a viernes · 14 a 22 h
-                <br />
-                Sábados · 9 a 00 h
-                <br />
-                Domingos · 9 a 22 h
+                {CLUB_HOURS.map((hours) => (
+                  <div key={hours.label}>
+                    {hours.label} · {hours.schedule}
+                  </div>
+                ))}
               </div>
             </div>
             <div className="info-block">
               <div className="label">Correo</div>
               <div className="value">
-                <a href="mailto:clubfabricadearmas@gmail.com">
-                  clubfabricadearmas@gmail.com
-                </a>
+                <a href={`mailto:${CLUB_EMAIL}`}>{CLUB_EMAIL}</a>
               </div>
             </div>
             <div className="info-block">
@@ -69,41 +78,25 @@ export function Contacto() {
               <div className="value">
                 <a
                   className="instagram-link"
-                  href="https://www.instagram.com/clubdomingomatheurosario?stkn=MWp2dGdxdm51dDYydg=="
+                  href={CLUB_INSTAGRAM_URL}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                  >
-                    <rect x="3" y="3" width="18" height="18" rx="5" />
-                    <circle cx="12" cy="12" r="4" />
-                    <circle
-                      cx="17.5"
-                      cy="6.5"
-                      r="1"
-                      fill="currentColor"
-                      stroke="none"
-                    />
-                  </svg>
-                  <span>@clubdomingomatheurosario</span>
+                  <InstagramIcon />
+                  <span>@{CLUB_INSTAGRAM_HANDLE}</span>
                 </a>
               </div>
             </div>
             <div className="contact-map">
               <iframe
-                title="Ubicación del Club Social y Deportivo F. A. Domingo Matheu"
-                src="https://www.google.com/maps?q=-32.996548,-60.6814769&z=16&output=embed"
+                title={`Ubicación del ${CLUB_NAME}`}
+                src={CLUB_MAP_EMBED_URL}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
               />
               <a
-                href="https://maps.app.goo.gl/xJNqLx5BMPVVyET7A"
+                href={CLUB_MAPS_URL}
                 target="_blank"
                 rel="noreferrer"
               >
