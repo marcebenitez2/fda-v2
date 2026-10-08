@@ -1,6 +1,8 @@
 import { CLUB_PHONE } from "./disciplines";
 import { whatsappUrl } from "./whatsapp";
 
+const DEVELOPER_PHONE = "341 569 0470";
+
 export function Footer() {
   return (
     <footer>
@@ -51,7 +53,20 @@ export function Footer() {
         </div>
         <div className="foot-bottom">
           <div>© CLUB S&amp;D F.A. DOMINGO MATHEU</div>
-          <div>+80 años · Hecho con orgullo en Zona Sur</div>
+          <a
+            className="foot-credit"
+            href={whatsappUrl(
+              DEVELOPER_PHONE,
+              "¡Hola Marce! Vi la web del Club Domingo Matheu.",
+            )}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Desarrollado por Marce Benitez{" "}
+            <span className="foot-heart" aria-hidden="true">
+              ❤️
+            </span>
+          </a>
         </div>
       </div>
     </footer>

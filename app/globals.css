@@ -1961,6 +1961,19 @@ footer {
   flex-wrap: wrap;
   gap: 12px;
 }
+.foot-credit {
+  transition: color 0.2s ease;
+}
+.foot-credit:hover {
+  color: var(--yellow);
+}
+.foot-heart {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+.foot-credit:hover .foot-heart {
+  transform: scale(1.25);
+}
 
 /* ───────── Scroll reveal ───────── */
 .reveal {
