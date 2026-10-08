@@ -208,7 +208,8 @@
     gap: 0;
   }
   .nav-links a {
-    padding-inline: 9px;
+    padding-inline: 7px;
+    white-space: nowrap;
   }
   .nav-links .nav-cta {
     margin-left: 6px;

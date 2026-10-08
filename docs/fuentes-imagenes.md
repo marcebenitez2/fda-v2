@@ -29,6 +29,9 @@ Las fotos de actividades y del festejo muestran momentos concretos, y la foto de
 | `patin-recortado.png` | Recorte anterior de la misma presentación, conservado como archivo histórico. |
 | `hockey-entrenamiento.jpg` | Entrenamiento nocturno; tarjeta destacada de Hockey |
 | `hockey-equipo.png` | Palos, bochas y conos; detalle de la tarjeta de Hockey |
+| `escuela-plaza-grupos.jpg` | Grupos de alumnos en el playón frente a la plaza de juegos, enviada por el club; sección Escuelas y jardines |
+| `escuela-arbol-hojas.jpg` | Alumnos armando un árbol con hojas del predio, enviada por el club; sección Escuelas y jardines |
+| `escuela-juego-cesped.jpg` | Alumnos jugando sobre el césped durante una jornada, enviada por el club; sección Escuelas y jardines |
 
 Las imágenes de taekwondo y patín muestran competiciones; sus textos alternativos no las describen como escenas del predio.
 
