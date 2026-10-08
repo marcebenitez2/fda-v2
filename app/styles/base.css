@@ -117,3 +117,37 @@ button {
 section {
   position: relative;
 }
+
+/* ───────── Keyboard focus ───────── */
+:root {
+  --focus-ring: var(--green);
+}
+.pulmon,
+.contacto,
+footer,
+.status,
+.disc-contact {
+  --focus-ring: var(--lime);
+}
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+main:focus {
+  outline: none;
+}
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 16px;
+  z-index: 200;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: var(--green-deep);
+  color: var(--cream);
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+.skip-link:focus {
+  transform: none;
+}

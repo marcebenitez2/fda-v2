@@ -56,15 +56,20 @@ export default function Page() {
           __html: JSON.stringify(clubStructuredData).replace(/</g, "\\u003c"),
         }}
       />
+      <a href="#contenido" className="skip-link">
+        Saltar al contenido
+      </a>
       <Nav />
-      <Hero />
-      <LogoFlightScript />
-      <Recorrido />
-      <Pulmon />
-      <Disciplinas />
-      <Instalaciones />
-      <Comunidad />
-      <Contacto />
+      <main id="contenido" tabIndex={-1}>
+        <Hero />
+        <LogoFlightScript />
+        <Recorrido />
+        <Pulmon />
+        <Disciplinas />
+        <Instalaciones />
+        <Comunidad />
+        <Contacto />
+      </main>
       <Footer />
     </>
   );

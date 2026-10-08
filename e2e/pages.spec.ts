@@ -43,6 +43,25 @@ test.describe("pages", () => {
     expect(await robots.text()).toContain("Sitemap:");
   });
 
+  test("publishes an iOS home-screen icon", async ({ page, request }) => {
+    await page.goto("/");
+    const href = await page
+      .locator('link[rel="apple-touch-icon"]')
+      .getAttribute("href");
+    expect(href).toBeTruthy();
+
+    const icon = await request.get(href ?? "");
+    expect(icon.status()).toBe(200);
+    expect(icon.headers()["content-type"]).toBe("image/png");
+  });
+
+  test("loads Vercel Analytics", async ({ page }) => {
+    await page.goto("/");
+    await expect(
+      page.locator('script[src$="/_vercel/insights/script.js"]'),
+    ).toHaveCount(1);
+  });
+
   test("hero counters ship the real values in the HTML", async ({
     request,
   }) => {

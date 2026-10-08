@@ -175,6 +175,11 @@
     opacity: 1;
     visibility: visible;
     transform: none;
+    /* Visible at once so the links can take keyboard focus as it opens. */
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease,
+      visibility 0s;
   }
   .nav-links a {
     font-family: var(--f-display);

@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { useRef } from "react";
+import { useFocusTrap } from "./use-focus-trap";
 import { useMenu } from "./use-menu";
 
 const NAV_LINKS = [
@@ -14,10 +16,13 @@ const NAV_LINKS = [
 
 export function Nav() {
   const menu = useMenu();
+  const navRef = useRef<HTMLElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  useFocusTrap(navRef, toggleRef, menu.isOpen);
 
   return (
     <>
-      <nav className={`nav${menu.isOpen ? " is-open" : ""}`}>
+      <nav ref={navRef} className={`nav${menu.isOpen ? " is-open" : ""}`}>
         <span className="logo-slot" aria-hidden="true" />
 
         <div className="nav-links" id="nav-menu">
@@ -33,6 +38,7 @@ export function Nav() {
         </div>
 
         <button
+          ref={toggleRef}
           type="button"
           className="nav-toggle"
           aria-label={menu.isOpen ? "Cerrar menú" : "Abrir menú"}
