@@ -55,6 +55,9 @@ const disciplines: Discipline[] = [
   {
     name: "Pelota paleta",
     photo: "Foto · Pelota paleta",
+    image: "/club/pelota-paleta.jpg",
+    alt: "Jugadores de pelota paleta posando en el frontón del club",
+    imageClassName: "photo-cover--pelota-paleta",
   },
   {
     name: "Taekwondo",
