@@ -16,6 +16,7 @@ export function Footer() {
             <a href="#disciplinas">Disciplinas</a>
             <a href="#instalaciones">Instalaciones</a>
             <a href="#comunidad">Comunidad</a>
+            <a href="/novedades">Novedades</a>
           </div>
           <div className="foot-col">
             <h4>Socios</h4>

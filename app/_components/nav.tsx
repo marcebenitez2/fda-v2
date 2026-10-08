@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { href: "#disciplinas", label: "Disciplinas" },
   { href: "#instalaciones", label: "Instalaciones" },
   { href: "#comunidad", label: "Comunidad" },
+  { href: "/novedades", label: "Novedades" },
 ];
 
 export function Nav() {
