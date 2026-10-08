@@ -1,3 +1,4 @@
+import { Nav } from "./_components/nav";
 import { Hero } from "./_components/hero";
 import { Recorrido } from "./_components/recorrido";
 import { Pulmon } from "./_components/pulmon";
@@ -43,6 +44,7 @@ export default function Page() {
           __html: JSON.stringify(clubStructuredData).replace(/</g, "\\u003c"),
         }}
       />
+      <Nav />
       <Hero />
       <Recorrido />
       <Pulmon />
