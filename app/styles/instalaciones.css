@@ -23,12 +23,18 @@
   display: flex;
   flex-direction: column;
   border: 1px solid var(--line);
+}
+/* Cards are also scroll reveals: keep the reveal's opacity and transform
+   timing, and lift with `translate` so hover gets its own quick transition. */
+.card.reveal {
   transition:
-    transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
-    box-shadow 0.5s;
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0s),
+    translate 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .card:hover {
-  transform: translateY(-4px);
+  translate: 0 -4px;
   box-shadow: 0 30px 60px rgba(20, 53, 39, 0.1);
 }
 .card-photo {
