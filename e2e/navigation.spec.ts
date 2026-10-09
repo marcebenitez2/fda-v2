@@ -94,4 +94,21 @@ test.describe("logo flight", () => {
     await scrollTo(page, 0);
     await expect(name).toBeHidden();
   });
+
+  test("still works after returning home from another page without reloading", async ({
+    page,
+  }) => {
+    // Regression test: the inline script does not run on client-side navigation.
+    await page.goto("/novedades");
+    await page.getByRole("link", { name: "Volver al inicio" }).click();
+    await expect(page).toHaveURL(/\/$/);
+    const html = page.locator("html");
+
+    await scrollTo(page, 600);
+    await expect(html).toHaveAttribute("data-logo-docked", "");
+    await expect(html).toHaveAttribute("data-scrolled", "");
+
+    await scrollTo(page, 0);
+    await expect(html).not.toHaveAttribute("data-logo-docked");
+  });
 });

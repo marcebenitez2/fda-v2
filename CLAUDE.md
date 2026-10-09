@@ -39,7 +39,7 @@ Marketing site for Club S&D F.A. Domingo Matheu. Next.js **16.2.6** App Router, 
 
 **Styling:** plain CSS with design tokens as CSS variables in `app/styles/base.css`. Tailwind v4 is installed only for its base reset (preflight); its utility classes are not used. Do not remove the `@import "tailwindcss"` line without checking every page, since the reset affects margins and typography across the site.
 
-**Nav logo animation:** `app/_components/logo-flight.ts` runs as an inline script (`LogoFlightScript`) right after the hero, before React hydrates, so it works on slow connections. It must stay self-contained (it is serialized with `toString()`).
+**Nav logo animation:** `app/_components/logo-flight.ts` runs as an inline script (`LogoFlightScript`) right after the hero, before React hydrates, so it works on slow connections. It must stay self-contained (it is serialized with `toString()`). React does not run that inline script after a client-side navigation (e.g. a `<Link>` back to `/`), so `Nav` also starts it on mount through `use-logo-flight.ts`.
 
 ## Next.js 16 Breaking Changes
 

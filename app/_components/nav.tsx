@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRef } from "react";
 import { CLUB_NAME_MAIN, CLUB_NAME_PREFIX } from "./club-info";
 import { useFocusTrap } from "./use-focus-trap";
+import { useLogoFlight } from "./use-logo-flight";
 import { useMenu } from "./use-menu";
 
 const NAV_LINKS = [
@@ -21,6 +22,7 @@ export function Nav() {
   const navRef = useRef<HTMLElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
   useFocusTrap(navRef, toggleRef, menu.isOpen, ".nav-links a");
+  useLogoFlight();
 
   return (
     <>

@@ -2,18 +2,25 @@
 // JavaScript bundle loads, so the nav reacts to the first scroll even on a
 // slow connection. It must stay self-contained: it is serialized with
 // toString(), so it cannot use imports or module-level values.
-export function initLogoFlight(): void {
+//
+// React does not run inline scripts after a client-side navigation (e.g. a
+// <Link> back to the home page), so the nav also calls it on mount. Calling it
+// again on the same page returns the running flight's stop function.
+export function initLogoFlight(): () => void {
   const DOCK_SCROLL_Y = 30;
   const FLIGHT_MS = 480;
   const FLIGHT_TILT_DEG = -14;
   const FLIGHT_EASING = "cubic-bezier(0.65, 0, 0.35, 1)";
 
+  type Flyer = HTMLElement & { stopLogoFlight?: () => void };
+
   const root = document.documentElement;
   const nav = document.querySelector<HTMLElement>(".nav");
   const slot = document.querySelector<HTMLElement>(".logo-slot");
-  const flyer = document.querySelector<HTMLElement>(".logo-fly");
+  const flyer = document.querySelector<Flyer>(".logo-fly");
   const source = document.querySelector<HTMLElement>(".hero-logo");
-  if (!nav || !slot || !flyer || !source) return;
+  if (!nav || !slot || !flyer || !source) return () => undefined;
+  if (flyer.stopLogoFlight) return flyer.stopLogoFlight;
 
   interface Placement {
     x: number;
@@ -101,8 +108,21 @@ export function initLogoFlight(): void {
     }
   };
 
+  const navObserver = new MutationObserver(sync);
+  const stop = (): void => {
+    window.removeEventListener("scroll", sync);
+    window.removeEventListener("resize", onResize);
+    navObserver.disconnect();
+    root.removeAttribute("data-scrolled");
+    root.removeAttribute("data-logo-docked");
+    root.removeAttribute("data-logo-active");
+    delete flyer.stopLogoFlight;
+  };
+  flyer.stopLogoFlight = stop;
+
   sync();
   window.addEventListener("scroll", sync, { passive: true });
   window.addEventListener("resize", onResize);
-  new MutationObserver(sync).observe(nav, { attributeFilter: ["class"] });
+  navObserver.observe(nav, { attributeFilter: ["class"] });
+  return stop;
 }
