@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { href: "#instalaciones", label: "Instalaciones" },
   { href: "#comunidad", label: "Comunidad" },
   { href: "#escuelas", label: "Escuelas" },
+  { href: "#convenios", label: "Convenios" },
   { href: "/novedades", label: "Novedades" },
 ];
 

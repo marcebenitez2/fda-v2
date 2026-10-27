@@ -35,6 +35,14 @@ Las fotos de actividades y del festejo muestran momentos concretos, y la foto de
 
 Las imágenes de taekwondo y patín muestran competiciones; sus textos alternativos no las describen como escenas del predio.
 
+## Logos de convenios
+
+Se guardan en `public/convenios` y se muestran en las tarjetas de la sección Convenios.
+
+| Archivo | Origen | Uso en la página |
+| --- | --- | --- |
+| `secyt.jpg` | Foto de perfil de [@secytrosario en Instagram](https://www.instagram.com/secytrosario/) (150 × 150 px) | Tarjeta del convenio con SECYT. Si el club consigue el logo en mayor resolución o en SVG, conviene reemplazarlo. |
+
 ## Video aportado por el usuario
 
 `public/video1.mp4` conserva el original de 33,6 segundos. `public/club/recorrido-club.mp4` es la versión para la página, convertida a H.264 en 720 × 1280 px con audio AAC-LC (aprox. 7,88 MB), un formato compatible con navegadores móviles y preparado para comenzar a reproducir mientras descarga. Se reproduce completa en la sección «El club en movimiento», con controles y sin carga previa. `public/club/video-poster.jpg` es el fotograma de cierre aportado junto al video y se muestra antes de reproducirlo.
