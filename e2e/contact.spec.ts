@@ -101,8 +101,6 @@ test.describe("club details", () => {
 
     await expect(contact).toContainText(CLUB_ADDRESS.street);
     await expect(contact).toContainText(CLUB_PHONE);
-    await expect(contact).toContainText("No atendemos llamadas");
-    await expect(page.locator('a[href^="tel:"]')).toHaveCount(0);
 
     const data = JSON.parse(
       (await page

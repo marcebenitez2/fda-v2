@@ -51,7 +51,6 @@ export function Contacto() {
                   {CLUB_PHONE}
                 </a>
               </div>
-              <div className="note">Solo mensajes. No atendemos llamadas.</div>
             </div>
             <div className="info-block">
               <div className="label">Horarios del club</div>
