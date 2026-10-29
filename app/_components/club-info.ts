@@ -9,7 +9,7 @@ export const CLUB_SHORT_NAME = "Club Domingo Matheu";
 export const CLUB_EMAIL = "clubfabricadearmas@gmail.com";
 export const CLUB_BILLING_EMAIL = "cobranzasfar@gmail.com";
 export const CLUB_PHONE = "341 356 0193";
-export const CLUB_MEMBERS_PORTAL_URL = "https://far.myhoost.com/";
+export const CLUB_MEMBERS_PORTAL_URL = "https://www.far.myhoost.com/";
 // Shared login the club hands out to every member; it is meant to be public.
 export const CLUB_MEMBERS_PORTAL_LOGIN = {
   user: "socios",
