@@ -95,6 +95,16 @@ test.describe("logo flight", () => {
     await expect(name).toBeHidden();
   });
 
+  test("docks before the JavaScript bundle loads", async ({ page }) => {
+    // The inline script must work on its own, e.g. on a slow connection.
+    await page.route(/\/_next\/static\/chunks\//, (route) => route.abort());
+    await page.goto("/");
+
+    await scrollTo(page, 600);
+    await expect(page.locator("html")).toHaveAttribute("data-logo-docked", "");
+    expect(await page.evaluate(() => "next" in window)).toBe(false);
+  });
+
   test("still works after returning home from another page without reloading", async ({
     page,
   }) => {
