@@ -8,6 +8,7 @@ import { Instalaciones } from "./_components/instalaciones";
 import { Comunidad } from "./_components/comunidad";
 import { Escuelas } from "./_components/escuelas";
 import { Convenios } from "./_components/convenios";
+import { Preguntas } from "./_components/preguntas";
 import { Contacto } from "./_components/contacto";
 import { Footer } from "./_components/footer";
 import {
@@ -72,6 +73,7 @@ export default function Page() {
         <Comunidad />
         <Escuelas />
         <Convenios />
+        <Preguntas />
         <Contacto />
       </main>
       <Footer />

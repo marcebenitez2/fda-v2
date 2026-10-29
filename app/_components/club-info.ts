@@ -7,7 +7,14 @@ export const CLUB_NAME = `${CLUB_NAME_PREFIX} ${CLUB_NAME_MAIN}`;
 export const CLUB_SHORT_NAME = "Club Domingo Matheu";
 
 export const CLUB_EMAIL = "clubfabricadearmas@gmail.com";
+export const CLUB_BILLING_EMAIL = "cobranzasfar@gmail.com";
 export const CLUB_PHONE = "341 356 0193";
+export const CLUB_MEMBERS_PORTAL_URL = "https://far.myhoost.com/";
+// Shared login the club hands out to every member; it is meant to be public.
+export const CLUB_MEMBERS_PORTAL_LOGIN = {
+  user: "socios",
+  password: "far2025",
+};
 
 export const CLUB_INSTAGRAM_HANDLE = "clubdomingomatheurosario";
 export const CLUB_INSTAGRAM_URL = `https://www.instagram.com/${CLUB_INSTAGRAM_HANDLE}/`;
@@ -53,4 +60,21 @@ export const CLUB_HOURS: OpeningHours[] = [
     opens: "09:00",
     closes: "22:00",
   },
+];
+
+export const CLUB_HOLIDAY_OPENS = "9 h";
+
+interface OfficeHours {
+  label: string;
+  schedule: string;
+}
+
+// Opening hours of the Secretaría, the club's front office.
+export const CLUB_OFFICE_HOURS: OfficeHours[] = [
+  { label: "Lunes", schedule: "Cerrado" },
+  { label: "Martes", schedule: "15 a 19 h" },
+  { label: "Miércoles", schedule: "14 a 19 h" },
+  { label: "Jueves y viernes", schedule: "15 a 19 h" },
+  { label: "Sábados", schedule: "11 a 18 h" },
+  { label: "Domingos", schedule: "10 a 15 h" },
 ];
