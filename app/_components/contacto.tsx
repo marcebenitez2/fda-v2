@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Reveal } from "./reveal";
 import { ContactForm } from "./contact-form";
 import {
@@ -100,9 +99,7 @@ export function Contacto() {
           <Reveal delay=".15s">
             <p className="contacto-form-intro">
               Dejanos tus datos y te llamamos para coordinar una visita guiada,
-              contarte sobre disciplinas, cuotas y reservas de quinchos. ¿Tenés
-              una duda puntual? Fijate si ya está en las{" "}
-              <Link href="/preguntas-frecuentes">preguntas frecuentes</Link>.
+              contarte sobre disciplinas, cuotas y reservas de quinchos.
             </p>
             <ContactForm />
           </Reveal>

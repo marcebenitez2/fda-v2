@@ -1,28 +1,20 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import { CLUB_NAME_MAIN, CLUB_NAME_PREFIX } from "./club-info";
+import { NavDropdown } from "./nav-dropdown";
+import { NAV_PAGE_LINKS, NAV_SECTION_LINKS } from "./nav-links";
 import { useFocusTrap } from "./use-focus-trap";
 import { useLogoFlight } from "./use-logo-flight";
 import { useMenu } from "./use-menu";
-
-const NAV_LINKS = [
-  { href: "#pulmon", label: "El club" },
-  { href: "#recorrido", label: "Recorrido" },
-  { href: "#disciplinas", label: "Disciplinas" },
-  { href: "#instalaciones", label: "Instalaciones" },
-  { href: "#comunidad", label: "Comunidad" },
-  { href: "#escuelas", label: "Escuelas" },
-  { href: "#convenios", label: "Convenios" },
-  { href: "/novedades", label: "Novedades" },
-];
 
 export function Nav() {
   const menu = useMenu();
   const navRef = useRef<HTMLElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
-  useFocusTrap(navRef, toggleRef, menu.isOpen, ".nav-links a");
+  useFocusTrap(navRef, toggleRef, menu.isOpen, ".nav-links :is(a, button)");
   useLogoFlight();
 
   return (
@@ -42,10 +34,15 @@ export function Nav() {
         </div>
 
         <div className="nav-links" id="nav-menu">
-          {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} onClick={menu.close}>
+          <NavDropdown
+            label="El club"
+            links={NAV_SECTION_LINKS}
+            onNavigate={menu.close}
+          />
+          {NAV_PAGE_LINKS.map((link) => (
+            <Link key={link.href} href={link.href} onClick={menu.close}>
               {link.label}
-            </a>
+            </Link>
           ))}
           <a href="#contacto" className="nav-cta" onClick={menu.close}>
             <span className="dot" />

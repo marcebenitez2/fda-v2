@@ -1,5 +1,9 @@
 import { expect, test } from "@playwright/test";
 import { CLUB_NAME_MAIN, CLUB_NAME_PREFIX } from "../app/_components/club-info";
+import {
+  NAV_PAGE_LINKS,
+  NAV_SECTION_LINKS,
+} from "../app/_components/nav-links";
 import { scrollTo } from "./helpers";
 
 test.describe("mobile menu", () => {
@@ -16,10 +20,9 @@ test.describe("mobile menu", () => {
     await toggle.click();
     await expect(nav).toHaveClass(/is-open/);
 
-    await page
-      .locator(".nav-links")
-      .getByRole("link", { name: "Instalaciones" })
-      .click();
+    const links = page.locator(".nav-links");
+    await links.getByRole("button", { name: "El club", exact: true }).click();
+    await links.getByRole("link", { name: "Instalaciones" }).click();
     await expect(nav).not.toHaveClass(/is-open/);
     await expect(page).toHaveURL(/#instalaciones$/);
 
@@ -36,6 +39,96 @@ test.describe("mobile menu", () => {
 
     await page.keyboard.press("Escape");
     await expect(page.locator(".nav")).not.toHaveClass(/is-open/);
+  });
+
+  test("shows the pages right away and the home sections under El club", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await page.getByRole("button", { name: "Abrir menú" }).click();
+    const links = page.locator(".nav-links");
+    const club = links.getByRole("button", { name: "El club", exact: true });
+
+    for (const link of NAV_PAGE_LINKS) {
+      const item = links.getByRole("link", { name: link.label, exact: true });
+      await expect(item).toBeInViewport();
+      await expect(item).toHaveAttribute("href", link.href);
+    }
+    await expect(links.locator(".nav-cta")).toBeInViewport();
+
+    await expect(
+      links.getByRole("link", { name: NAV_SECTION_LINKS[0].label }),
+    ).toBeHidden();
+    await club.click();
+    await expect(club).toHaveAttribute("aria-expanded", "true");
+    for (const link of NAV_SECTION_LINKS) {
+      const item = links.getByRole("link", { name: link.label, exact: true });
+      await expect(item).toBeVisible();
+      await expect(item).toHaveAttribute("href", link.href);
+    }
+  });
+});
+
+test.describe("desktop nav", () => {
+  test.skip(
+    ({ isMobile }) => isMobile,
+    "the mobile menu opens El club in place",
+  );
+
+  test("groups the home sections under El club and closes again", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const toggle = page.getByRole("button", { name: "El club", exact: true });
+    const menu = page.locator(".nav-dropdown-menu");
+
+    await expect(menu).toBeHidden();
+    await toggle.click();
+    await expect(toggle).toHaveAttribute("aria-expanded", "true");
+    await expect(menu.getByRole("link")).toHaveText(
+      NAV_SECTION_LINKS.map((link) => link.label),
+    );
+    for (const link of NAV_SECTION_LINKS) {
+      await expect(
+        menu.getByRole("link", { name: link.label, exact: true }),
+      ).toHaveAttribute("href", link.href);
+    }
+
+    await page.keyboard.press("Escape");
+    await expect(menu).toBeHidden();
+    await expect(toggle).toBeFocused();
+
+    await toggle.click();
+    await expect(menu).toBeVisible();
+    await page.mouse.click(10, 500);
+    await expect(menu).toBeHidden();
+  });
+
+  test("a section in the dropdown scrolls to it and closes the menu", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await page.getByRole("button", { name: "El club", exact: true }).click();
+    const menu = page.locator(".nav-dropdown-menu");
+    await menu.getByRole("link", { name: "Disciplinas" }).click();
+
+    await expect(page).toHaveURL(/#disciplinas$/);
+    await expect(menu).toBeHidden();
+  });
+
+  test("keeps Novedades and Preguntas frecuentes in view", async ({ page }) => {
+    await page.goto("/");
+    const links = page.locator(".nav-links");
+
+    for (const link of NAV_PAGE_LINKS) {
+      const item = links.getByRole("link", { name: link.label, exact: true });
+      await expect(item).toBeVisible();
+      await expect(item).toHaveAttribute("href", link.href);
+    }
+
+    await links.getByRole("link", { name: "Preguntas frecuentes" }).click();
+    await expect(page).toHaveURL(/\/preguntas-frecuentes$/);
+    await expect(page.locator("h1")).toContainText("más nos preguntan");
   });
 });
 

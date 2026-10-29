@@ -88,11 +88,16 @@ test.describe("faq page", () => {
   }) => {
     await page.goto("/");
 
-    await expect(page.locator(".faq")).toHaveCount(0);
-    for (const area of [page.locator(".contacto"), page.locator("footer")]) {
-      await expect(
-        area.getByRole("link", { name: "Preguntas frecuentes" }),
-      ).toHaveAttribute("href", FAQ_PATH);
-    }
+    await expect(page.locator(".faq-item")).toHaveCount(0);
+    await expect(
+      page
+        .locator("#preguntas")
+        .getByRole("link", { name: "Ver preguntas frecuentes" }),
+    ).toHaveAttribute("href", FAQ_PATH);
+    await expect(
+      page
+        .locator("footer")
+        .getByRole("link", { name: "Preguntas frecuentes" }),
+    ).toHaveAttribute("href", FAQ_PATH);
   });
 });

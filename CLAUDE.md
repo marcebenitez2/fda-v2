@@ -26,11 +26,12 @@ npm run test:e2e:report  # Open the HTML report of the last test run
 Marketing site for Club S&D F.A. Domingo Matheu. Next.js **16.2.6** App Router, React 19.2, TypeScript (strict). Mostly static: the home page is a single route built from section components.
 
 - `app/page.tsx` — home page: renders the sections in order plus the JSON-LD structured data.
-- `app/preguntas-frecuentes/` — the FAQ page: the `Preguntas` section between `SubpageHeader` (a static stand-in for the home nav) and the `Footer`. Questions live in `faqs.ts`, prices in `fees.ts`.
+- `app/preguntas-frecuentes/` — the FAQ page: the `Preguntas` section between `SubpageHeader` (a static stand-in for the home nav) and the `Footer`. The home only shows `PreguntasCta`, a short section linking to it. Questions live in `faqs.ts`, prices in `fees.ts`.
 - `app/novedades/`, `app/not-found.tsx`, `app/error.tsx` — standalone pages built on the shared `StatusPage` layout.
 - `app/_components/` — section components (`hero.tsx`, `disciplinas.tsx`, …), small shared components, hooks (`use-*.ts`) and static data:
   - `club-info.ts` — contact details, address, hours, social links. Single source of truth: never hard-code these anywhere else.
   - `disciplines.ts`, `facilities.ts` — the lists that drive the disciplines grid, the hero marquee and counters, and the facilities cards.
+  - `nav-links.ts` — the nav links: the home sections, grouped under the "El club" dropdown (`NavDropdown`), and the pages outside the home (Novedades, Preguntas frecuentes), always in view.
 - `app/_services/` — calls to external services (e.g. `contact.service.ts`, which posts the contact form to FormSubmit).
 - `app/_types/` — request/response types for those services.
 - `app/_lib/` — non-UI helpers (e.g. `site-url.ts`).

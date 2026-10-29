@@ -42,11 +42,12 @@ test.describe("keyboard navigation", () => {
     }) => {
       await page.goto("/");
       const toggle = page.locator(".nav-toggle");
-      const links = page.locator(".nav-links a");
 
       await toggle.focus();
       await page.keyboard.press("Enter");
-      await expect(links.first()).toBeFocused();
+      await expect(
+        page.getByRole("button", { name: "El club", exact: true }),
+      ).toBeFocused();
 
       // Shift+Tab goes back to the club name, then wraps to the last item.
       await page.keyboard.press("Shift+Tab");

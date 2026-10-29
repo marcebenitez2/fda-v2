@@ -1,4 +1,39 @@
 /* ───────── PREGUNTAS FRECUENTES ───────── */
+/* Home: short section that points to the FAQ page. */
+.faq-cta {
+  padding: 120px 0;
+  background: var(--paper);
+}
+.faq-cta h2 {
+  margin-top: 20px;
+}
+.faq-cta .section-head {
+  margin-bottom: 0;
+}
+.faq-cta .section-head p {
+  margin: 0;
+}
+.faq-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 16px 24px;
+  border-radius: 999px;
+  background: var(--green-deep);
+  color: var(--cream);
+  font-size: 14px;
+  font-weight: 700;
+  transition:
+    transform 0.25s,
+    background 0.25s;
+}
+.faq-cta-link:hover {
+  background: var(--green);
+  transform: translateY(-2px);
+}
+
+/* FAQ page. */
 .faq {
   padding: 72px 0 120px;
   background: var(--paper);
