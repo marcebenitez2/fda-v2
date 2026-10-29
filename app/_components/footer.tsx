@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   CLUB_EMAIL,
   CLUB_INSTAGRAM_URL,
@@ -22,12 +23,12 @@ export function Footer() {
           </div>
           <div className="foot-col">
             <h4>Club</h4>
-            <a href="#pulmon">Quiénes somos</a>
-            <a href="#disciplinas">Disciplinas</a>
-            <a href="#instalaciones">Instalaciones</a>
-            <a href="#comunidad">Comunidad</a>
-            <a href="#preguntas">Preguntas frecuentes</a>
-            <a href="/novedades">Novedades</a>
+            <Link href="/#pulmon">Quiénes somos</Link>
+            <Link href="/#disciplinas">Disciplinas</Link>
+            <Link href="/#instalaciones">Instalaciones</Link>
+            <Link href="/#comunidad">Comunidad</Link>
+            <Link href="/preguntas-frecuentes">Preguntas frecuentes</Link>
+            <Link href="/novedades">Novedades</Link>
           </div>
           <div className="foot-col">
             <h4>Contacto</h4>

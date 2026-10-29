@@ -1,0 +1,82 @@
+/* ───────── SUBPAGE HEADER ───────── */
+/* Same height and look as the home nav once scrolled, so --nav-h keeps
+   working for anchor offsets and sticky elements below it. */
+.subpage-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 32px;
+  background: rgba(246, 241, 228, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.subpage-brand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.subpage-brand img {
+  flex: none;
+  width: 40px;
+  height: 44px;
+}
+.subpage-brand-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  margin-left: 12px;
+  padding-left: 12px;
+  border-left: 2px solid var(--yellow-deep);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.subpage-brand-prefix {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--green);
+}
+.subpage-brand-main {
+  font-family: var(--f-display);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.subpage-back {
+  flex: none;
+  padding: 11px 18px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+.subpage-back:hover {
+  background: rgba(15, 42, 31, 0.06);
+}
+@media (max-width: 980px) {
+  .subpage-header {
+    padding: 12px 20px;
+  }
+  .subpage-brand img {
+    width: 34px;
+    height: 38px;
+  }
+  .subpage-brand-name {
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+  .subpage-brand-prefix {
+    font-size: 9px;
+  }
+  .subpage-brand-main {
+    font-size: 15px;
+  }
+}

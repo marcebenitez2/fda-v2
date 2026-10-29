@@ -1,6 +1,8 @@
 import { expect, test } from "@playwright/test";
 import { FAQ_GROUPS, type FaqBlock } from "../app/_components/faqs";
 
+const FAQ_PATH = "/preguntas-frecuentes";
+
 const blockTexts = (block: FaqBlock): string[] => {
   switch (block.type) {
     case "text":
@@ -12,12 +14,12 @@ const blockTexts = (block: FaqBlock): string[] => {
   }
 };
 
-test.describe("faq section", () => {
+test.describe("faq page", () => {
   test("groups the questions by topic with an index to each one", async ({
     page,
   }) => {
-    await page.goto("/");
-    const section = page.locator("#preguntas");
+    await page.goto(FAQ_PATH);
+    const section = page.locator(".faq");
 
     for (const group of FAQ_GROUPS) {
       await expect(
@@ -33,7 +35,7 @@ test.describe("faq section", () => {
   });
 
   test("each question opens its full answer and links", async ({ page }) => {
-    await page.goto("/");
+    await page.goto(FAQ_PATH);
 
     for (const faq of FAQ_GROUPS.flatMap((group) => group.faqs)) {
       const item = page
@@ -53,6 +55,44 @@ test.describe("faq section", () => {
           answer.getByRole("link", { name: link.label }),
         ).toHaveAttribute("href", link.href);
       }
+    }
+  });
+
+  test("links to home sections point to sections that exist", async ({
+    page,
+  }) => {
+    await page.goto(FAQ_PATH);
+    const ids = await page.evaluate(() =>
+      [...document.querySelectorAll<HTMLAnchorElement>('a[href^="/#"]')].map(
+        (link) => link.getAttribute("href")?.slice(2) ?? "",
+      ),
+    );
+    expect(ids.length).toBeGreaterThan(0);
+
+    await page.goto("/");
+    for (const id of new Set(ids)) {
+      await expect(page.locator(`[id="${id}"]`)).toHaveCount(1);
+    }
+  });
+
+  test("the header takes you back to the home page", async ({ page }) => {
+    await page.goto(FAQ_PATH);
+    await page.getByRole("link", { name: "Volver al inicio" }).click();
+
+    await expect(page).toHaveURL(/\/$/);
+    await expect(page.locator("h1")).toContainText("DOMINGO MATHEU");
+  });
+
+  test("the home page links to it instead of listing the questions", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    await expect(page.locator(".faq")).toHaveCount(0);
+    for (const area of [page.locator(".contacto"), page.locator("footer")]) {
+      await expect(
+        area.getByRole("link", { name: "Preguntas frecuentes" }),
+      ).toHaveAttribute("href", FAQ_PATH);
     }
   });
 });

@@ -11,9 +11,9 @@ import { MEMBERSHIP_FEES, VISITOR_FEES } from "./fees";
 import { SCHOOL_WHATSAPP_MESSAGE } from "./school-visits";
 import { whatsappUrl } from "./whatsapp";
 
-// Only questions the rest of the page does not answer already: club hours,
-// the WhatsApp number, the disciplines and their contacts live in their own
-// sections.
+// Only questions the home page does not answer already: club hours, the
+// WhatsApp number, the disciplines and their contacts live in their own
+// sections there.
 
 export type FaqBlock =
   | { type: "text"; text: string }
@@ -377,7 +377,7 @@ export const FAQ_GROUPS: FaqGroup[] = [
             ],
           },
         ],
-        links: [{ label: "Ver disciplinas", href: "#disciplinas" }],
+        links: [{ label: "Ver disciplinas", href: "/#disciplinas" }],
       },
       {
         question: "¿Hasta cuándo puede reservar una escuela?",

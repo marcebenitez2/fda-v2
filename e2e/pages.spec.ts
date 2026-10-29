@@ -24,6 +24,21 @@ test.describe("pages", () => {
     expect(problems).toEqual([]);
   });
 
+  test("preguntas frecuentes loads without errors", async ({ page }) => {
+    const problems = trackPageProblems(page);
+    const response = await page.goto("/preguntas-frecuentes");
+
+    expect(response?.status()).toBe(200);
+    await expect(page).toHaveTitle(/^Preguntas frecuentes/);
+    await expect(page.locator("h1")).toContainText("más nos preguntan");
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+      "href",
+      /\/preguntas-frecuentes$/,
+    );
+    await page.waitForLoadState("load");
+    expect(problems).toEqual([]);
+  });
+
   test("unknown routes show the club 404 page", async ({ page }) => {
     const response = await page.goto("/esta-pagina-no-existe");
 
@@ -37,7 +52,9 @@ test.describe("pages", () => {
   test("sitemap and robots are published", async ({ request }) => {
     const sitemap = await request.get("/sitemap.xml");
     expect(sitemap.status()).toBe(200);
-    expect(await sitemap.text()).toContain("<urlset");
+    const sitemapXml = await sitemap.text();
+    expect(sitemapXml).toContain("<urlset");
+    expect(sitemapXml).toContain("/preguntas-frecuentes</loc>");
 
     const robots = await request.get("/robots.txt");
     expect(await robots.text()).toContain("Sitemap:");
@@ -75,11 +92,13 @@ test.describe("pages", () => {
   test("every in-page link points to an existing section", async ({ page }) => {
     await page.goto("/");
     const missing = await page.evaluate(() =>
-      [...document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')]
-        .map((link) => link.getAttribute("href") ?? "")
-        .filter(
-          (href) => href.length > 1 && !document.getElementById(href.slice(1)),
+      [
+        ...document.querySelectorAll<HTMLAnchorElement>(
+          'a[href^="#"], a[href^="/#"]',
         ),
+      ]
+        .map((link) => link.getAttribute("href")?.replace(/^\/?#/, "") ?? "")
+        .filter((id) => id.length > 0 && !document.getElementById(id)),
     );
 
     expect(missing).toEqual([]);

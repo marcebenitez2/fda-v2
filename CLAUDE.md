@@ -26,6 +26,7 @@ npm run test:e2e:report  # Open the HTML report of the last test run
 Marketing site for Club S&D F.A. Domingo Matheu. Next.js **16.2.6** App Router, React 19.2, TypeScript (strict). Mostly static: the home page is a single route built from section components.
 
 - `app/page.tsx` — home page: renders the sections in order plus the JSON-LD structured data.
+- `app/preguntas-frecuentes/` — the FAQ page: the `Preguntas` section between `SubpageHeader` (a static stand-in for the home nav) and the `Footer`. Questions live in `faqs.ts`, prices in `fees.ts`.
 - `app/novedades/`, `app/not-found.tsx`, `app/error.tsx` — standalone pages built on the shared `StatusPage` layout.
 - `app/_components/` — section components (`hero.tsx`, `disciplinas.tsx`, …), small shared components, hooks (`use-*.ts`) and static data:
   - `club-info.ts` — contact details, address, hours, social links. Single source of truth: never hard-code these anywhere else.

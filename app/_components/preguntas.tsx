@@ -90,14 +90,14 @@ function FaqItem({ faq }: { faq: Faq }) {
 
 export function Preguntas() {
   return (
-    <section className="faq" id="preguntas">
+    <section className="faq">
       <div className="wrap">
         <div className="section-head">
           <Reveal>
             <div className="eyebrow">Preguntas frecuentes</div>
-            <h2 className="display h-md">
+            <h1 className="display h-lg">
               Lo que <em>más nos preguntan</em>.
-            </h2>
+            </h1>
           </Reveal>
           <Reveal className="right" delay=".15s">
             Visitas, cuotas, quinchos, salón y actividades. Si no encontrás lo
